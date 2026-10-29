@@ -143,7 +143,7 @@
       radial-gradient(circle at 82% 75%, rgba(201,154,96,.12), transparent 45%);
     pointer-events:none;
   }
-  .hero-inner{position:relative; display:grid; grid-template-columns:1.3fr .9fr; gap:48px; align-items:center;}
+  .hero-inner{position:relative; display:grid; grid-template-columns:1.3fr .9fr; gap:48px; align-items:start; padding-bottom:64px;}
   @media (max-width:860px){ .hero-inner{grid-template-columns:1fr;} }
   .hero h1{
     font-size:clamp(34px, 5vw, 54px); color:#FBF6EC; margin-bottom:14px;
@@ -274,8 +274,40 @@
     display:inline-flex; align-items:center; gap:8px;
     background:var(--surface-2); border:1px solid var(--line); color:var(--brown-dark);
     font-size:13px; font-weight:600; padding:8px 14px; border-radius:999px;
+    text-decoration:none;
   }
   .badge svg{width:14px; height:14px; flex:none;}
+  a.badge{transition:border-color .15s, transform .15s;}
+  a.badge:hover{border-color:var(--brown-light); transform:translateY(-1px);}
+  a.badge .ext{width:12px; height:12px; margin-left:-2px; opacity:.7;}
+
+  .thumb-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:18px;}
+  .thumb{
+    width:76px; height:76px; border-radius:10px; overflow:hidden; border:1px solid var(--line);
+    padding:0; cursor:zoom-in; background:var(--surface-2); position:relative; flex:none;
+    transition:transform .15s, border-color .15s;
+  }
+  .thumb:hover{transform:translateY(-2px); border-color:var(--brown-light);}
+  .thumb img{width:100%; height:100%; object-fit:cover; display:block;}
+  .thumb::after{
+    content:"\2922"; position:absolute; right:3px; bottom:2px; font-size:11px; color:#fff;
+    background:rgba(0,0,0,.45); width:16px; height:16px; border-radius:4px;
+    display:flex; align-items:center; justify-content:center; line-height:1;
+  }
+  .lightbox{
+    position:fixed; inset:0; background:rgba(10,8,5,.86); z-index:300;
+    display:none; align-items:center; justify-content:center; padding:32px;
+  }
+  .lightbox.open{display:flex;}
+  .lightbox figure{margin:0; max-width:min(90vw,720px); text-align:center;}
+  .lightbox img{max-width:100%; max-height:76vh; border-radius:10px; display:block; margin:0 auto;}
+  .lightbox figcaption{color:#F3ECE0; font-size:13.5px; margin-top:14px;}
+  .lightbox-close{
+    position:absolute; top:22px; right:26px; width:40px; height:40px; border-radius:50%;
+    background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.3); color:#fff;
+    font-size:20px; cursor:pointer; display:flex; align-items:center; justify-content:center;
+  }
+  .lightbox-close:hover{background:rgba(255,255,255,.18);}
 
   .highlights{display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:38px;}
   @media (max-width:700px){ .highlights{grid-template-columns:1fr;} }
@@ -332,15 +364,21 @@
   .collab-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:28px;}
   @media (max-width:700px){ .collab-grid{grid-template-columns:repeat(2,1fr);} }
   .collab{
-    background:var(--surface); border:1px solid var(--line); border-radius:12px;
+    display:block; background:var(--surface); border:1px solid var(--line); border-radius:12px;
     padding:20px 14px; text-align:center; font-size:13.5px; font-weight:600; color:var(--ink-soft);
-    transition:transform .15s, border-color .15s;
+    text-decoration:none; transition:transform .15s, border-color .15s, box-shadow .15s;
   }
-  .collab:hover{transform:translateY(-2px); border-color:var(--brown-light);}
+  .collab:hover{transform:translateY(-2px); border-color:var(--brown-light); box-shadow:0 10px 24px rgba(0,0,0,.08);}
   .collab .mark{
     width:40px; height:40px; border-radius:50%; margin:0 auto 10px; background:var(--surface-2);
     display:flex; align-items:center; justify-content:center; color:var(--brown-dark); font-family:'Fraunces',serif; font-weight:600;
   }
+  .collab-link{
+    display:flex; align-items:center; justify-content:center; gap:5px;
+    margin-top:10px; font-size:11.5px; font-weight:600; color:var(--brown);
+    text-transform:uppercase; letter-spacing:.04em;
+  }
+  .collab-link svg{width:12px; height:12px;}
 
   /* achievements */
   .ach-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
@@ -394,8 +432,8 @@
     <ul class="navlinks" id="navlinks">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#gis">GIS Portfolio</a></li>
       <li><a href="#tech">Tech Portfolio</a></li>
+      <li><a href="#gis">GIS Portfolio</a></li>
       <li><a href="#initiatives">Initiatives</a></li>
       <li><a href="#contact">Let's chat</a></li>
     </ul>
@@ -508,29 +546,29 @@
             <div class="tl-item open" data-idx="0">
               <div class="tl-marker"></div>
               <div class="tl-body">
-                <button class="tl-head" type="button"><span class="tl-title">GIS Product Manager</span><span class="tl-org">Henson Geospatial Technologies</span></button>
-                <div class="tl-detail"><div class="tl-detail-inner"><p>Coordinated software and data teams and farmer-centered research for IGEZA (MyAgro360), which won the $50,000 Frontier Innovation Award.</p></div></div>
+                <button class="tl-head" type="button"><span class="tl-title">UX Researcher</span><span class="tl-org">Microsoft, current</span></button>
+                <div class="tl-detail"><div class="tl-detail-inner"><p>Co-created a Model Output Human Evaluations governance method that improved Generative AI output quality by more than 50%.</p></div></div>
               </div>
             </div>
             <div class="tl-item" data-idx="1">
-              <div class="tl-marker"></div>
-              <div class="tl-body">
-                <button class="tl-head" type="button"><span class="tl-title">GIS Specialist</span><span class="tl-org">Coca-Cola Beverages Africa</span></button>
-                <div class="tl-detail"><div class="tl-detail-inner"><p>Optimized Route-to-Market distribution across 80,000+ customer locations in Ghana, cutting operational costs by about 50%.</p></div></div>
-              </div>
-            </div>
-            <div class="tl-item" data-idx="2">
               <div class="tl-marker"></div>
               <div class="tl-body">
                 <button class="tl-head" type="button"><span class="tl-title">Co-Founder</span><span class="tl-org">African Women in GIS, ongoing</span></button>
                 <div class="tl-detail"><div class="tl-detail-inner"><p>Built a 1,000+ member, 30+ country network providing mentorship, training and opportunities for African women in geospatial careers.</p></div></div>
               </div>
             </div>
+            <div class="tl-item" data-idx="2">
+              <div class="tl-marker"></div>
+              <div class="tl-body">
+                <button class="tl-head" type="button"><span class="tl-title">GIS Specialist</span><span class="tl-org">Coca-Cola Beverages Africa</span></button>
+                <div class="tl-detail"><div class="tl-detail-inner"><p>Optimized Route-to-Market distribution across 80,000+ customer locations in Ghana, cutting operational costs by about 50%.</p></div></div>
+              </div>
+            </div>
             <div class="tl-item" data-idx="3">
               <div class="tl-marker"></div>
               <div class="tl-body">
-                <button class="tl-head" type="button"><span class="tl-title">UX Researcher</span><span class="tl-org">Microsoft, current</span></button>
-                <div class="tl-detail"><div class="tl-detail-inner"><p>Co-created a Model Output Human Evaluations governance method that improved Generative AI output quality by more than 50%.</p></div></div>
+                <button class="tl-head" type="button"><span class="tl-title">GIS Product Manager</span><span class="tl-org">Henson Geospatial Technologies</span></button>
+                <div class="tl-detail"><div class="tl-detail-inner"><p>Coordinated software and data teams and farmer-centered research for IGEZA (MyAgro360), which won the $50,000 Frontier Innovation Award.</p></div></div>
               </div>
             </div>
           </div>
@@ -553,67 +591,6 @@
     <div class="wrap">
       <div class="quote reveal">
         <p>"Some of the most powerful business insights appear when data is placed on a map, because location intelligence reveals the hidden relationships between customers, operations and opportunity."</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="gis">
-    <div class="wrap">
-      <div class="section-head left reveal">
-        <p class="eyebrow">GIS Portfolio</p>
-        <h2>GIS product manager portfolio</h2>
-        <p>Geospatial program management, location intelligence strategy and GeoAI product development across retail distribution and agri-tech.</p>
-      </div>
-
-      <div class="tabs reveal">
-        <div class="tab-list">
-          <button class="tab-btn active" data-target="gis-1" type="button">Route-to-market project</button>
-          <button class="tab-btn" data-target="gis-2" type="button">IGEZA: pest &amp; disease control</button>
-        </div>
-        <div class="tab-panels">
-          <div class="tab-panel active" id="gis-1">
-            <div class="case">
-              <div class="case-head">
-                <h3>Route-to-market project</h3>
-                <span class="case-org">Coca-Cola Beverages Africa, Voltic Ghana</span>
-              </div>
-              <p>At Coca-Cola Beverages Africa subsidiary Voltic Ghana, I used geospatial analytics to optimize distribution operations across Ghana for the Route-to-Market project.</p>
-              <p>By analyzing over 80,000 customer locations, I developed a route-to-market solution that reduced operational costs by 50%, improved delivery efficiency, and established data-driven sales territories. This work contributed to the company receiving the 2020 Esri Special Achievement in GIS Award.</p>
-              <div class="mini-chart">
-                <p class="chart-title">Operational cost, before vs. after</p>
-                <div class="bar-row"><span class="bar-tag">Before</span><div class="bar-track"><div class="bar-fill" data-width="100"></div></div><span class="bar-val">100%</span></div>
-                <div class="bar-row"><span class="bar-tag">After</span><div class="bar-track"><div class="bar-fill accent" data-width="50"></div></div><span class="bar-val">50%</span></div>
-                <p class="chart-caption">Route-to-Market redesign, across 80,000+ analyzed locations.</p>
-              </div>
-              <div class="badges">
-                <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6.2 4.6 2.4 7.4L12 16.8 5.8 21.4l2.4-7.4L2 9.4h7.6z"/></svg>Best Sales and Marketing Team (Voltic Ghana, CCBA)</span>
-                <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6.2 4.6 2.4 7.4L12 16.8 5.8 21.4l2.4-7.4L2 9.4h7.6z"/></svg>Esri Special Achievement in GIS Award (Voltic Ghana Limited)</span>
-              </div>
-            </div>
-          </div>
-          <div class="tab-panel" id="gis-2">
-            <div class="case">
-              <div class="case-head">
-                <h3>IGEZA: Pest &amp; Disease Control System</h3>
-                <span class="case-org">Henson Geodata Technologies, GeoAI products</span>
-              </div>
-              <p>As Project Coordinator for IGEZA at Henson Geodata Technologies, I bridged geospatial technology, user research and product strategy to deliver an innovative digital solution: an AI-powered geospatial platform that enabled smallholder farmers to detect, report and respond to Fall Armyworm outbreaks through mobile technology, location intelligence and access to expert support.</p>
-              <p>I pitched this product to several key clients, including government offices and FAW Tech Prize investors.</p>
-              <p>Following field testing and evaluation, IGEZA earned a Frontier Innovation Award, recognizing its potential to improve food security and protect smallholder farmers across Africa through technology-driven agricultural advisory services.</p>
-              <div class="funnel">
-                <div class="funnel-step"><div class="fn-num" data-value="220" data-suffix="+">0</div><div class="fn-label">Global submissions</div></div>
-                <span class="fn-arrow">&#8594;</span>
-                <div class="funnel-step"><div class="fn-num" data-prefix="Top " data-value="20">Top 0</div><div class="fn-label">Finalists, USAID Feed the Future</div></div>
-                <span class="fn-arrow">&#8594;</span>
-                <div class="funnel-step highlight"><div class="fn-num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6.2 4.6 2.4 7.4L12 16.8 5.8 21.4l2.4-7.4L2 9.4h7.6z"/></svg></div><div class="fn-label">Frontier Innovation Award winner</div></div>
-              </div>
-              <div class="badges">
-                <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6.2 4.6 2.4 7.4L12 16.8 5.8 21.4l2.4-7.4L2 9.4h7.6z"/></svg>Frontier Innovation Award ($50,000)</span>
-                <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 11-5.2-3"/></svg>100,000+ digitized points of interest, Liberia</span>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -655,9 +632,9 @@
               <p>As co-Lead UX Researcher, I co-created a user-centric prompt evaluation governance framework with a Content Designer to improve the quality, consistency and trustworthiness of AI responses to people-related queries. Establishing structured evaluation processes, success metrics and feedback loops drove a 50% improvement in AI response quality, while enabling scalable human-in-the-loop assessment across teams.</p>
               <div class="mini-chart">
                 <p class="chart-title">AI response quality score, before vs. after</p>
-                <div class="bar-row"><span class="bar-tag">Before</span><div class="bar-track"><div class="bar-fill" data-width="100"></div></div><span class="bar-val">100%</span></div>
+                <div class="bar-row"><span class="bar-tag">Before</span><div class="bar-track"><div class="bar-fill" data-width="100"></div></div><span class="bar-val">Baseline</span></div>
                 <div class="bar-row"><span class="bar-tag">After</span><div class="bar-track"><div class="bar-fill accent" data-width="150"></div></div><span class="bar-val">+50%</span></div>
-                <p class="chart-caption">With the new evaluation governance framework.</p>
+                <p class="chart-caption">With the new evaluation governance framework, response quality scored 50% higher than the baseline.</p>
               </div>
             </div>
           </div>
@@ -691,12 +668,80 @@
     </div>
   </section>
 
+  <section id="gis">
+    <div class="wrap">
+      <div class="section-head left reveal">
+        <p class="eyebrow">GIS Portfolio</p>
+        <h2>GIS product manager portfolio</h2>
+        <p>Geospatial program management, location intelligence strategy and GeoAI product development across retail distribution and agri-tech.</p>
+      </div>
+
+      <div class="tabs reveal">
+        <div class="tab-list">
+          <button class="tab-btn active" data-target="gis-1" type="button">Route-to-market project</button>
+          <button class="tab-btn" data-target="gis-2" type="button">IGEZA: pest &amp; disease control</button>
+        </div>
+        <div class="tab-panels">
+          <div class="tab-panel active" id="gis-1">
+            <div class="case">
+              <div class="case-head">
+                <h3>Route-to-market project</h3>
+                <span class="case-org">Coca-Cola Beverages Africa, Voltic Ghana</span>
+              </div>
+              <p>At Coca-Cola Beverages Africa subsidiary Voltic Ghana, I used geospatial analytics to optimize distribution operations across Ghana for the Route-to-Market project.</p>
+              <p>By analyzing over 80,000 customer locations, I developed a route-to-market solution that reduced operational costs by 50%, improved delivery efficiency, and established data-driven sales territories. This work contributed to the company receiving the 2020 Esri Special Achievement in GIS Award.</p>
+              <div class="mini-chart">
+                <p class="chart-title">Operational cost, before vs. after</p>
+                <div class="bar-row"><span class="bar-tag">Before</span><div class="bar-track"><div class="bar-fill" data-width="100"></div></div><span class="bar-val">100%</span></div>
+                <div class="bar-row"><span class="bar-tag">After</span><div class="bar-track"><div class="bar-fill accent" data-width="50"></div></div><span class="bar-val">50%</span></div>
+                <p class="chart-caption">Route-to-Market redesign, across 80,000+ analyzed locations.</p>
+              </div>
+              <div class="badges">
+                <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6.2 4.6 2.4 7.4L12 16.8 5.8 21.4l2.4-7.4L2 9.4h7.6z"/></svg>Best Sales and Marketing Team (Voltic Ghana, CCBA)</span>
+                <a class="badge" href="https://events.esri.com/conference/sagList/?fa=List&amp;awardyear=2020" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6.2 4.6 2.4 7.4L12 16.8 5.8 21.4l2.4-7.4L2 9.4h7.6z"/></svg>Esri Special Achievement in GIS Award (Voltic Ghana Limited)<svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+              </div>
+              <div class="thumb-row">
+                <button class="thumb" type="button" data-full="images/cw-gis-banner.jpg" data-caption="Coca-Cola Beverages Africa, Route-to-Market project"><img src="images/cw-gis-banner.jpg" alt="Coca-Cola Beverages Africa, Route-to-Market project" loading="lazy"></button>
+                <button class="thumb" type="button" data-full="images/cw-gis-cert.jpg" data-caption="Best Sales and Marketing Team award, Voltic Ghana"><img src="images/cw-gis-cert.jpg" alt="Best Sales and Marketing Team award, Voltic Ghana" loading="lazy"></button>
+                <button class="thumb" type="button" data-full="images/cw-gis-event.jpg" data-caption="Route-to-market territory mapping"><img src="images/cw-gis-event.jpg" alt="Route-to-market territory mapping" loading="lazy"></button>
+                <button class="thumb" type="button" data-full="images/cw-gis-team.jpg" data-caption="Route-to-market project team, Voltic Ghana"><img src="images/cw-gis-team.jpg" alt="Route-to-market project team, Voltic Ghana" loading="lazy"></button>
+              </div>
+            </div>
+          </div>
+          <div class="tab-panel" id="gis-2">
+            <div class="case">
+              <div class="case-head">
+                <h3>IGEZA: Pest &amp; Disease Control System</h3>
+                <span class="case-org">Henson Geodata Technologies, GeoAI products</span>
+              </div>
+              <p>As Project Coordinator for IGEZA at Henson Geodata Technologies, I bridged geospatial technology, user research and product strategy to deliver an innovative digital solution: an AI-powered geospatial platform that enabled smallholder farmers to detect, report and respond to Fall Armyworm outbreaks through mobile technology, location intelligence and access to expert support.</p>
+              <p>I pitched this product to several key clients, including government offices and FAW Tech Prize investors.</p>
+              <p>Following field testing and evaluation, IGEZA earned a Frontier Innovation Award, recognizing its potential to improve food security and protect smallholder farmers across Africa through technology-driven agricultural advisory services.</p>
+              <div class="funnel">
+                <div class="funnel-step"><div class="fn-num" data-value="220" data-suffix="+">0</div><div class="fn-label">Global submissions</div></div>
+                <span class="fn-arrow">&#8594;</span>
+                <div class="funnel-step"><div class="fn-num" data-prefix="Top " data-value="20">Top 0</div><div class="fn-label">Finalists, USAID Feed the Future</div></div>
+                <span class="fn-arrow">&#8594;</span>
+                <div class="funnel-step highlight"><div class="fn-num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6.2 4.6 2.4 7.4L12 16.8 5.8 21.4l2.4-7.4L2 9.4h7.6z"/></svg></div><div class="fn-label">Frontier Innovation Award winner</div></div>
+              </div>
+              <div class="badges">
+                <a class="badge" href="https://fallarmywormtech.challenges.org/winners/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6.2 4.6 2.4 7.4L12 16.8 5.8 21.4l2.4-7.4L2 9.4h7.6z"/></svg>Frontier Innovation Award ($50,000)<svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+                <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 11-5.2-3"/></svg>100,000+ digitized points of interest, Liberia</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="initiatives">
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow">Initiatives</p>
         <h2>African Women in GIS</h2>
         <p>AWiGIS is a 1,000+ pan-African network advancing the participation and leadership of women in GIS, geospatial sciences, remote sensing and related technologies.</p>
+        <a class="btn btn-outline" style="margin-top:6px;" href="https://linktr.ee/africanwomeningis" target="_blank" rel="noopener">AWiGIS info &amp; links <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></a>
       </div>
 
       <div class="init-stats">
@@ -740,12 +785,16 @@
       <p style="color:var(--ink-soft); max-width:760px; margin:0 auto 14px;">Through mentorship, capacity building, knowledge sharing and professional networking, AWiGIS empowers women across Africa to develop technical expertise and build impactful careers in the geospatial sector. With members spanning 30+ diverse countries and backgrounds, the organization fosters a collaborative community that supports learning, innovation and leadership.</p>
       <p style="color:var(--ink-soft); max-width:760px; margin:0 auto;">By connecting emerging professionals with experienced practitioners and industry partners, AWiGIS is helping shape a more inclusive geospatial ecosystem and inspiring the next generation of African women leaders in STEM.</p>
 
+      <div class="thumb-row" style="justify-content:center; margin-top:22px;">
+        <button class="thumb" type="button" data-full="images/initiatives-1.jpg" data-caption="African Women in GIS, connecting a pan-African network"><img src="images/initiatives-1.jpg" alt="African Women in GIS, connecting a pan-African network" loading="lazy"></button>
+      </div>
+
       <h3 style="text-align:center; margin-top:48px; font-size:17px;">Top collaborators</h3>
       <div class="collab-grid">
-        <div class="collab reveal"><div class="mark">WG</div>Women+ in Geospatial</div>
-        <div class="collab reveal"><div class="mark">DEA</div>Digital Earth Africa</div>
-        <div class="collab reveal"><div class="mark">WS</div>Women in Space Kenya</div>
-        <div class="collab reveal"><div class="mark">NG</div>NorthStar of GIS: Black in Geography, GIS &amp; the Geosciences</div>
+        <a class="collab reveal" href="https://womeningeospatial.org/" target="_blank" rel="noopener"><div class="mark">WG</div>Women+ in Geospatial<span class="collab-link">Visit site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></span></a>
+        <a class="collab reveal" href="https://www.digitalearthafrica.org/" target="_blank" rel="noopener"><div class="mark">DEA</div>Digital Earth Africa<span class="collab-link">Visit site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></span></a>
+        <a class="collab reveal" href="https://data.spacehubs.africa/database/entity/nonprofits/women-in-space-kenya/" target="_blank" rel="noopener"><div class="mark">WS</div>Women in Space Kenya<span class="collab-link">Profile <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></span></a>
+        <a class="collab reveal" href="https://linktr.ee/northstarofgis" target="_blank" rel="noopener"><div class="mark">NG</div>NorthStar of GIS: Black in Geography, GIS &amp; the Geosciences<span class="collab-link">Visit site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></span></a>
       </div>
     </div>
   </section>
@@ -807,6 +856,14 @@
 </footer>
 
 <button class="back-to-top" id="backToTop" aria-label="Back to top" type="button">&#8593;</button>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close image" type="button">&times;</button>
+  <figure>
+    <img id="lightboxImg" src="" alt="">
+    <figcaption id="lightboxCaption"></figcaption>
+  </figure>
+</div>
 
 <script>
 (function(){
@@ -955,9 +1012,12 @@
       entries.forEach(function(entry){
         if (!entry.isIntersecting) return;
         obs.unobserve(entry.target);
-        entry.target.querySelectorAll('.bar-fill[data-width]').forEach(function(bar){
-          var w = bar.getAttribute('data-width');
-          requestAnimationFrame(function(){ bar.style.width = Math.min(parseFloat(w), 100) + '%'; });
+        var bars = entry.target.querySelectorAll('.bar-fill[data-width]');
+        var scaleMax = 100;
+        bars.forEach(function(bar){ scaleMax = Math.max(scaleMax, parseFloat(bar.getAttribute('data-width'))); });
+        bars.forEach(function(bar){
+          var w = parseFloat(bar.getAttribute('data-width'));
+          requestAnimationFrame(function(){ bar.style.width = (w / scaleMax * 100) + '%'; });
         });
       });
     }, { threshold: 0.25 });
@@ -1023,6 +1083,31 @@
     document.body.removeChild(ta);
     if (cb) cb();
   }
+
+  var lightbox = document.getElementById('lightbox');
+  var lightboxImg = document.getElementById('lightboxImg');
+  var lightboxCaption = document.getElementById('lightboxCaption');
+  var lightboxClose = document.getElementById('lightboxClose');
+  function openLightbox(src, caption){
+    lightboxImg.src = src;
+    lightboxImg.alt = caption || '';
+    lightboxCaption.textContent = caption || '';
+    lightbox.classList.add('open');
+  }
+  function closeLightbox(){
+    lightbox.classList.remove('open');
+    lightboxImg.src = '';
+  }
+  document.querySelectorAll('.thumb').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var full = btn.getAttribute('data-full') || btn.querySelector('img').src;
+      var caption = btn.getAttribute('data-caption') || btn.querySelector('img').alt;
+      openLightbox(full, caption);
+    });
+  });
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', function(e){ if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeLightbox(); });
 })();
 </script>
 
