@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cyhana Williams: Career Portfolio</title>
-<meta name="description" content="Geo Insight. GenAI. UX Impact. Career portfolio of Cyhana Williams, UX Researcher, GIS Product Manager and geospatial innovation leader.">
+<meta name="description" content="Geo Insight. GenAI. Product Impact. Career portfolio of Cyhana Williams, Product Manager for AI agents, enterprise data and geospatial intelligence.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -245,8 +245,9 @@
     background:var(--surface); border:1px solid var(--line); border-radius:999px;
     padding:8px 16px; font-size:13.5px; color:var(--ink-soft);
   }
-  .skills-groups{display:grid; grid-template-columns:1fr 1fr; gap:36px;}
-  @media (max-width:760px){ .skills-groups{grid-template-columns:1fr;} }
+  .skills-groups{display:grid; grid-template-columns:repeat(3, 1fr); gap:36px;}
+  @media (max-width:980px){ .skills-groups{grid-template-columns:1fr 1fr;} }
+  @media (max-width:640px){ .skills-groups{grid-template-columns:1fr;} }
   .skills-group-title{font-size:13px; font-weight:600; color:var(--brown); text-transform:uppercase; letter-spacing:.06em; margin:0 0 14px;}
   .skills-group .skills{margin-bottom:0;}
 
@@ -381,8 +382,7 @@
   .collab-link svg{width:12px; height:12px;}
 
   /* achievements */
-  .ach-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
-  @media (max-width:760px){ .ach-grid{grid-template-columns:repeat(2,1fr);} }
+  .ach-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:16px;}
   .ach{
     background:var(--surface); border:1px solid var(--line); border-radius:12px;
     padding:22px 16px; text-align:center; text-decoration:none; color:var(--ink);
@@ -454,8 +454,8 @@
       <div class="hero-inner">
         <div>
           <p class="who">With Cyhana Williams</p>
-          <h1>Geo insight. GenAI. UX impact.</h1>
-          <p class="lede">UX Researcher and GIS Product leader turning spatial data and user insight into strategic, human-centered AI and geospatial products at Microsoft, Coca-Cola Beverages Africa and across the African geospatial community.</p>
+          <h1>Geo insight. GenAI. Product impact.</h1>
+          <p class="lede">Product Manager and strategist across AI agents, enterprise data and geospatial intelligence. I turn spatial and operational data into product strategy, from AI experiences used by millions of Microsoft 365 users to a distribution system that cut operating costs by about 50%.</p>
           <div class="hero-actions">
             <a href="#about" class="btn btn-primary">Read my story</a>
             <a href="#contact" class="btn btn-ghost">Let's chat</a>
@@ -475,7 +475,7 @@
         </div>
         <div class="stat" data-ring data-pct="50" data-prefix="-" data-value="50" data-suffix="%">
           <div class="ring"><svg viewBox="0 0 64 64"><circle class="ring-bg" cx="32" cy="32" r="26"/><circle class="ring-fg" cx="32" cy="32" r="26"/></svg><div class="ring-label">0%</div></div>
-          <div class="label">Time reduction for UX research cycle using AI</div>
+          <div class="label">Time reduction for research cycles using AI</div>
         </div>
         <div class="stat" data-ring data-pct="50" data-prefix="" data-value="50" data-suffix="%&#8595;">
           <div class="ring"><svg viewBox="0 0 64 64"><circle class="ring-bg" cx="32" cy="32" r="26"/><circle class="ring-fg" cx="32" cy="32" r="26"/></svg><div class="ring-label">0%</div></div>
@@ -493,7 +493,7 @@
   <section>
     <div class="wrap">
       <div class="quote reveal">
-        <p>"The future of intelligent products lies at the intersection of spatial insights, AI capabilities and human understanding, where geography shows patterns, AI surfaces possibilities and UX research grounds those possibilities into evolving, user-centric experiences. Together, they turn complex data into sustainable strategic decisions."</p>
+        <p>"The future of intelligent products lies at the intersection of spatial insights, AI capabilities and human understanding, where geography shows patterns, AI surfaces possibilities and product strategy grounds those possibilities into evolving, user-centric experiences. Together, they turn complex data into sustainable strategic decisions."</p>
       </div>
     </div>
   </section>
@@ -506,27 +506,39 @@
       </div>
       <div class="skills-groups">
         <div class="skills-group reveal">
-          <p class="skills-group-title">Tech, AI & UX research</p>
+          <p class="skills-group-title">Product management & strategy</p>
           <div class="skills">
-            <span class="skill">NLX model human evaluations</span>
-            <span class="skill">GenAI UX design evaluations</span>
-            <span class="skill">Computer use agent UX research</span>
-            <span class="skill">AI-augmented research workflow optimization</span>
-            <span class="skill">Claude Code & GitHub Copilot for prototyping</span>
-            <span class="skill">Figma Make for natural language design</span>
+            <span class="skill">Product strategy</span>
+            <span class="skill">Roadmap prioritization</span>
+            <span class="skill">Requirements definition</span>
+            <span class="skill">Customer research & insights</span>
+            <span class="skill">Stakeholder & executive alignment</span>
+            <span class="skill">Go-to-market planning</span>
+            <span class="skill">Agile product development</span>
+            <span class="skill">Program management</span>
           </div>
         </div>
         <div class="skills-group reveal">
-          <p class="skills-group-title">Geospatial & GIS</p>
+          <p class="skills-group-title">AI & data platforms</p>
+          <div class="skills">
+            <span class="skill">AI agents</span>
+            <span class="skill">Agentic AI UX research</span>
+            <span class="skill">Human-in-the-loop LLM evaluation</span>
+            <span class="skill">GenAI UX (GenUX) evaluation</span>
+            <span class="skill">Knowledge graphs (Microsoft Graph)</span>
+            <span class="skill">Prompt & context engineering</span>
+            <span class="skill">Computer use agent UX research</span>
+          </div>
+        </div>
+        <div class="skills-group reveal">
+          <p class="skills-group-title">Geospatial & operational data</p>
           <div class="skills">
             <span class="skill">Geospatial program management & product development</span>
+            <span class="skill">Remote sensing & satellite imagery</span>
+            <span class="skill">Spatio-temporal analysis</span>
+            <span class="skill">Route optimization & territory mapping</span>
             <span class="skill">Location intelligence strategy</span>
             <span class="skill">AI & geospatial solutions</span>
-            <span class="skill">Cross-functional leadership</span>
-            <span class="skill">Stakeholder & partner management</span>
-            <span class="skill">Route-to-market optimization</span>
-            <span class="skill">Operational optimization through GIS</span>
-            <span class="skill">Geo-community building</span>
           </div>
         </div>
       </div>
@@ -547,29 +559,36 @@
             <div class="tl-item open" data-idx="0">
               <div class="tl-marker"></div>
               <div class="tl-body">
-                <button class="tl-head" type="button"><span class="tl-title">UX Researcher</span><span class="tl-org">Microsoft, current</span></button>
-                <div class="tl-detail"><div class="tl-detail-inner"><p>Co-created a Model Output Human Evaluations governance method that improved Generative AI output quality by more than 50%.</p></div></div>
+                <button class="tl-head" type="button"><span class="tl-title">AI UX Researcher II</span><span class="tl-org">Microsoft, current</span></button>
+                <div class="tl-detail"><div class="tl-detail-inner"><p>Shape product direction for AI agents including the Researcher agent in Microsoft 365 Copilot, People Agent and Org Explorer. Co-created a human evaluation governance framework that improved AI output quality by 50% and was adopted as the standard across multiple research teams.</p></div></div>
               </div>
             </div>
             <div class="tl-item" data-idx="1">
               <div class="tl-marker"></div>
               <div class="tl-body">
-                <button class="tl-head" type="button"><span class="tl-title">Co-Founder</span><span class="tl-org">African Women in GIS, ongoing</span></button>
-                <div class="tl-detail"><div class="tl-detail-inner"><p>Built a 1,000+ member, 30+ country network providing mentorship, training and opportunities for African women in geospatial careers.</p></div></div>
+                <button class="tl-head" type="button"><span class="tl-title">Founder & Host</span><span class="tl-org">Unconventional Impact, since 2026</span></button>
+                <div class="tl-detail"><div class="tl-detail-inner"><p>Built and launched a multi-channel media platform from zero, owning positioning, content strategy and go-to-market across LinkedIn, YouTube and Medium, and proposed the GeoAI Context Intelligence framework.</p></div></div>
               </div>
             </div>
             <div class="tl-item" data-idx="2">
               <div class="tl-marker"></div>
               <div class="tl-body">
-                <button class="tl-head" type="button"><span class="tl-title">GIS Specialist</span><span class="tl-org">Coca-Cola Beverages Africa</span></button>
-                <div class="tl-detail"><div class="tl-detail-inner"><p>Optimized Route-to-Market distribution across 80,000+ customer locations in Ghana, cutting operational costs by about 50%.</p></div></div>
+                <button class="tl-head" type="button"><span class="tl-title">Co-Founder</span><span class="tl-org">African Women in GIS, ongoing</span></button>
+                <div class="tl-detail"><div class="tl-detail-inner"><p>Grew a 1,000+ member, 30+ country network averaging about 10% growth per quarter, leading a 15+ person admin and volunteer team.</p></div></div>
               </div>
             </div>
             <div class="tl-item" data-idx="3">
               <div class="tl-marker"></div>
               <div class="tl-body">
-                <button class="tl-head" type="button"><span class="tl-title">GIS Product Manager</span><span class="tl-org">Henson Geospatial Technologies</span></button>
-                <div class="tl-detail"><div class="tl-detail-inner"><p>Coordinated software and data teams and farmer-centered research for IGEZA (MyAgro360), which won the $50,000 Frontier Innovation Award.</p></div></div>
+                <button class="tl-head" type="button"><span class="tl-title">GIS Mapping Specialist</span><span class="tl-org">Coca-Cola Beverages Africa</span></button>
+                <div class="tl-detail"><div class="tl-detail-inner"><p>Designed and delivered an optimized route-to-market system across 80,000+ customer locations in Ghana, from requirements through rollout, cutting operational costs by about 50%.</p></div></div>
+              </div>
+            </div>
+            <div class="tl-item" data-idx="4">
+              <div class="tl-marker"></div>
+              <div class="tl-body">
+                <button class="tl-head" type="button"><span class="tl-title">Product Manager, GeoAI Solutions</span><span class="tl-org">Henson Geodata Technologies</span></button>
+                <div class="tl-detail"><div class="tl-detail-inner"><p>Owned product delivery for IGEZA (now MyAgro360), coordinating software, data and farmer research teams, and led go-to-market planning that won the Frontier Innovation Award.</p></div></div>
               </div>
             </div>
           </div>
@@ -577,11 +596,12 @@
           <a class="btn btn-outline socials-btn" href="https://linktr.ee/cyhana" target="_blank" rel="noopener">Socials &#8594;</a>
         </div>
         <div class="about-body reveal">
-          <p>Cyhana Williams' work has driven impact across geospatial innovation and AI technology products by turning spatial data and user insights into strategic solutions. At Microsoft, she led research projects that helped optimize Generative AI output responses (text and visual) by co-introducing a governance method for Model Output Human Evaluations, a method that helped improve AI output by more than 50%.</p>
-          <p>Her geospatial analysis in the Route-to-Market project at Coca-Cola Beverages Africa, Voltic Ghana, optimized distribution across 80,000+ customer locations, reducing operational costs by about 50% while improving service territory planning and resource allocation.</p>
-          <p>At Henson Geodata Technologies (HGT), she coordinated both software and data teams, as well as farmer-centered research, for the development of IGEZA (MyAgro360), an agricultural intelligence system that earned international recognition and won the $50,000 Frontier Innovation Award (FAW Tech Prize) for helping farmers detect crop pests and access timely support.</p>
-          <p>Beyond technical impact, Cyhana co-founded African Women in GIS, a growing network across 30+ countries with 1,000+ members that provides mentorship, training and opportunities for African women in the geospatial field.</p>
-          <p>Together, her work advances geo-business strategy, technology program management, and advocacy for inclusion in the global geospatial and tech community. She believes that diverse voices shape the future of technology.</p>
+          <p>Cyhana Williams is a product manager and strategist with 8+ years across enterprise AI, data platforms and geospatial intelligence. She turns complex operational and spatial data into product strategy and business decisions, from AI agents used by millions of Microsoft 365 users to a distribution system that cut operating costs by about 50%.</p>
+          <p>At Microsoft, she has shaped product direction for AI agents including the Researcher agent in Microsoft 365 Copilot, People Agent and Org Explorer, running 40+ customer studies and co-creating a human evaluation governance framework that improved AI output quality by 50% and was adopted as the standard across multiple research teams.</p>
+          <p>Her geospatial analysis in the Route-to-Market project at Coca-Cola Beverages Africa, Voltic Ghana, took distribution strategy from requirements through rollout, optimizing 80,000+ customer locations and reducing operational costs by about 50% while preventing distributor territory disputes.</p>
+          <p>At Henson Geodata Technologies, she was Product Manager for GeoAI Solutions, owning delivery of IGEZA (now MyAgro360), an AI-powered pest and disease management product, and leading go-to-market planning that won the Frontier Innovation Award at the Fall Armyworm Tech Prize.</p>
+          <p>Beyond her core product work, Cyhana co-founded African Women in GIS, a 1,000+ member community across 30+ countries, and founded Unconventional Impact, a media platform built around her original GeoAI Context Intelligence framework for combining geospatial and AI thinking in unconventional fields.</p>
+          <p>Together, her work advances product strategy for AI and geospatial solutions, and advocates for inclusion in the global tech and geospatial community. She believes that diverse voices shape the future of technology.</p>
           <p style="font-size:13px; color:var(--ink-faint);">Tip: click a step in the timeline to the left to see the highlight from each chapter.</p>
         </div>
       </div>
@@ -601,19 +621,19 @@
       <div class="section-head left reveal">
         <p class="eyebrow">Tech Portfolio</p>
         <h2>Tech product management portfolio</h2>
-        <p>UX research and evaluation leadership for Generative AI products at Microsoft, plus GeoAI product coordination in agri-tech.</p>
+        <p>Product strategy and GenAI evaluation leadership for AI agents at Microsoft, plus GeoAI product management in agri-tech.</p>
       </div>
 
       <div class="highlights">
         <div class="highlight reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Co-created an AI output evaluation governance process</div>
-        <div class="highlight reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Contribution patent award for generating contextualized groups</div>
-        <div class="highlight reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Authored 40+ Microsoft research reports on people understanding &amp; GenAI UX</div>
-        <div class="highlight reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Pitched and won the Frontier Innovation award for the IGEZA product</div>
+        <div class="highlight reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Microsoft patent for generating contextualized group data</div>
+        <div class="highlight reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Ran 40+ customer studies across Org Explorer and People Agent</div>
+        <div class="highlight reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Led go-to-market and won the Frontier Innovation Award for IGEZA, from 288 applicants</div>
       </div>
 
       <div class="tabs reveal">
         <div class="tab-list">
-          <button class="tab-btn active" data-target="tech-1" type="button">M365 AI experiences</button>
+          <button class="tab-btn active" data-target="tech-1" type="button">Researcher agent, M365 Copilot</button>
           <button class="tab-btn" data-target="tech-2" type="button">Prompt evaluations</button>
           <button class="tab-btn" data-target="tech-3" type="button">People Agent</button>
           <button class="tab-btn" data-target="tech-4" type="button">Org Explorer</button>
@@ -622,9 +642,9 @@
         <div class="tab-panels">
           <div class="tab-panel active" id="tech-1">
             <div class="case">
-              <div class="case-head"><h3>M365 AI experiences: Researcher, GenUX</h3><span class="case-org">Microsoft Corporation</span></div>
-              <p>On Microsoft's Researcher team, I lead the evaluation of Generative UX quality by developing customer-centered rubrics and assessment frameworks for AI-generated visual and data-rich experiences, giving data science and engineering teams standardized quality metrics that guide model optimization and AI product improvements.</p>
-              <p>By translating user needs into scalable evaluation systems and driving insights alignment across research, product, design, engineering and data science stakeholders, I contribute to the delivery of higher-quality AI experiences, while strengthening my program management, product strategy and AI governance capabilities.</p>
+              <div class="case-head"><h3>Researcher agent, Microsoft 365 Copilot</h3><span class="case-org">Microsoft, AI UX Researcher II</span></div>
+              <p>I led Generative UI/UX (GenUX) research and owned human evaluation of AI-generated visual output quality for the Researcher agent, a deep research agent available to Microsoft 365 enterprise customers, turning quality findings into prioritized product improvements.</p>
+              <p>Across my time on Microsoft's Researcher team, I've built customer-centered evaluation rubrics and assessment frameworks for AI-generated visual and data-rich experiences, giving data science and engineering teams standardized quality metrics that guide model optimization, while strengthening my program management, product strategy and AI governance capabilities.</p>
             </div>
           </div>
           <div class="tab-panel" id="tech-2">
@@ -642,25 +662,25 @@
           <div class="tab-panel" id="tech-3">
             <div class="case">
               <div class="case-head"><h3>People Agent</h3><span class="case-org">Microsoft, People Agent product team</span></div>
-              <p>As co-Lead UX Researcher, I partnered with product, engineering and design teams to refine a GenAI-powered experience that helps users understand workplace relationships and collaboration networks. Through 7+ research studies, I translated user insights into product decisions that improved the quality, relevance and trustworthiness of the AI experience.</p>
+              <p>From October 2024 to January 2026, I led UX research for People Agent, an AI agent built on Microsoft Graph that shows employees how they're connected to colleagues and the work they share, translating customer needs into design and launch decisions on how people insights are surfaced.</p>
             </div>
           </div>
           <div class="tab-panel" id="tech-4">
             <div class="case">
               <div class="case-head"><h3>Org Explorer</h3><span class="case-org">Microsoft, Lead UX Researcher</span></div>
-              <p>I drove the research strategy behind a product used by millions of Microsoft 365 users to navigate organizational structures and workplace relationships, leading 10+ end-to-end research initiatives and translating complex user and business needs into actionable roadmaps that guided a successful, scalable launch.</p>
+              <p>From September 2020 to July 2024, I informed product priorities and launch decisions for Org Explorer, a product that lets employees explore their organization's structure and teams, now serving all Microsoft 365 users. I ran 40+ customer studies across Org Explorer and People Agent, translating complex user and business needs into actionable roadmaps that guided a successful, scalable launch.</p>
             </div>
           </div>
           <div class="tab-panel" id="tech-5">
             <div class="case">
-              <div class="case-head"><h3>IGEZA: Pest &amp; Disease Control System</h3><span class="case-org">Henson Geodata Technologies, GeoAI products &amp; experiences</span></div>
-              <p>As Project Coordinator, I bridged geospatial technology, user research and product strategy to deliver an AI-powered platform that enabled smallholder farmers to detect, report and respond to Fall Armyworm outbreaks.</p>
+              <div class="case-head"><h3>IGEZA: Pest &amp; Disease Control System</h3><span class="case-org">Henson Geodata Technologies, Product Manager, GeoAI Solutions</span></div>
+              <p>As Product Manager for GeoAI Solutions, I owned product delivery and go-to-market for an AI-powered platform that enabled smallholder farmers to detect, report and respond to Fall Armyworm outbreaks.</p>
               <div class="funnel">
-                <div class="funnel-step"><div class="fn-num" data-value="220" data-suffix="+">0</div><div class="fn-label">Global submissions</div></div>
+                <div class="funnel-step"><div class="fn-num" data-value="288">0</div><div class="fn-label">Global applicants</div></div>
                 <span class="fn-arrow">&#8594;</span>
                 <div class="funnel-step"><div class="fn-num" data-prefix="Top " data-value="20">Top 0</div><div class="fn-label">Finalists, USAID Feed the Future</div></div>
                 <span class="fn-arrow">&#8594;</span>
-                <div class="funnel-step highlight"><div class="fn-num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6.2 4.6 2.4 7.4L12 16.8 5.8 21.4l2.4-7.4L2 9.4h7.6z"/></svg></div><div class="fn-label">Frontier Innovation Award winner</div></div>
+                <div class="funnel-step highlight"><div class="fn-num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6.2 4.6 2.4 7.4L12 16.8 5.8 21.4l2.4-7.4L2 9.4h7.6z"/></svg></div><div class="fn-label">Frontier Innovation Award, 3rd place</div></div>
               </div>
             </div>
           </div>
@@ -674,7 +694,7 @@
       <div class="section-head left reveal">
         <p class="eyebrow">GIS Portfolio</p>
         <h2>GIS product manager portfolio</h2>
-        <p>Geospatial program management, location intelligence strategy and GeoAI product development across retail distribution and agri-tech.</p>
+        <p>Product strategy, geospatial program management and GeoAI product development across retail distribution and agri-tech.</p>
       </div>
 
       <div class="tabs reveal">
@@ -689,8 +709,8 @@
                 <h3>Route-to-market project</h3>
                 <span class="case-org">Coca-Cola Beverages Africa, Voltic Ghana</span>
               </div>
-              <p>At Coca-Cola Beverages Africa subsidiary Voltic Ghana, I used geospatial analytics to optimize distribution operations across Ghana for the Route-to-Market project.</p>
-              <p>By analyzing over 80,000 customer locations, I developed a route-to-market solution that reduced operational costs by 50%, improved delivery efficiency, and established data-driven sales territories. This work contributed to the company receiving the 2020 Esri Special Achievement in GIS Award.</p>
+              <p>As GIS Mapping Specialist for Route-to-Market Strategy at Coca-Cola Beverages Africa subsidiary Voltic Ghana, I designed and delivered an optimized route-to-market system, from requirements and stakeholder alignment through rollout to distributors.</p>
+              <p>By analyzing over 80,000 customer locations, I developed a route-to-market solution that reduced operational costs by 50%, improved delivery efficiency, established data-driven sales territories and prevented distributor territory disputes. This work contributed to the company receiving the 2020 Esri Special Achievement in GIS Award.</p>
               <div class="mini-chart">
                 <p class="chart-title">Operational cost, before vs. after</p>
                 <div class="bar-row"><span class="bar-tag">Before</span><div class="bar-track"><div class="bar-fill" data-width="100"></div></div><span class="bar-val">100%</span></div>
@@ -713,20 +733,20 @@
             <div class="case">
               <div class="case-head">
                 <h3>IGEZA: Pest &amp; Disease Control System</h3>
-                <span class="case-org">Henson Geodata Technologies, GeoAI products</span>
+                <span class="case-org">Henson Geodata Technologies, Product Manager, GeoAI Solutions</span>
               </div>
-              <p>As Project Coordinator for IGEZA at Henson Geodata Technologies, I bridged geospatial technology, user research and product strategy to deliver an innovative digital solution: an AI-powered geospatial platform that enabled smallholder farmers to detect, report and respond to Fall Armyworm outbreaks through mobile technology, location intelligence and access to expert support.</p>
-              <p>I pitched this product to several key clients, including government offices and FAW Tech Prize investors.</p>
-              <p>Following field testing and evaluation, IGEZA earned a Frontier Innovation Award, recognizing its potential to improve food security and protect smallholder farmers across Africa through technology-driven agricultural advisory services.</p>
+              <p>As Product Manager for GeoAI Solutions at Henson Geodata Technologies, I owned delivery of IGEZA (now MyAgro360), coordinating software, data and farmer research teams to deliver an AI-powered pest and disease management product that helps farmers detect crop threats, find recommended pesticides and alert agricultural extension officers.</p>
+              <p>I led go-to-market planning and represented the product in client meetings and competitions, including pitching IGEZA at the Fall Armyworm Tech Prize in Kampala as one of 20 finalists from 288 applicants.</p>
+              <p>The team won the Frontier Innovation Award (3rd place), recognized by USAID, Feed the Future and FFRAR for its potential to improve food security and protect smallholder farmers across Africa.</p>
               <div class="funnel">
-                <div class="funnel-step"><div class="fn-num" data-value="220" data-suffix="+">0</div><div class="fn-label">Global submissions</div></div>
+                <div class="funnel-step"><div class="fn-num" data-value="288">0</div><div class="fn-label">Global applicants</div></div>
                 <span class="fn-arrow">&#8594;</span>
                 <div class="funnel-step"><div class="fn-num" data-prefix="Top " data-value="20">Top 0</div><div class="fn-label">Finalists, USAID Feed the Future</div></div>
                 <span class="fn-arrow">&#8594;</span>
-                <div class="funnel-step highlight"><div class="fn-num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6.2 4.6 2.4 7.4L12 16.8 5.8 21.4l2.4-7.4L2 9.4h7.6z"/></svg></div><div class="fn-label">Frontier Innovation Award winner</div></div>
+                <div class="funnel-step highlight"><div class="fn-num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6.2 4.6 2.4 7.4L12 16.8 5.8 21.4l2.4-7.4L2 9.4h7.6z"/></svg></div><div class="fn-label">Frontier Innovation Award, 3rd place</div></div>
               </div>
               <div class="badges">
-                <a class="badge" href="https://fallarmywormtech.challenges.org/winners/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6.2 4.6 2.4 7.4L12 16.8 5.8 21.4l2.4-7.4L2 9.4h7.6z"/></svg>Frontier Innovation Award ($50,000)<svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+                <a class="badge" href="https://fallarmywormtech.challenges.org/winners/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6.2 4.6 2.4 7.4L12 16.8 5.8 21.4l2.4-7.4L2 9.4h7.6z"/></svg>Frontier Innovation Award, 3rd place ($50,000)<svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
                 <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 11-5.2-3"/></svg>100,000+ digitized points of interest, Liberia</span>
               </div>
             </div>
@@ -840,12 +860,16 @@
         </a>
         <a class="ach reveal" href="https://fallarmywormtech.challenges.org/winners/" target="_blank" rel="noopener">
           <div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-5.2-9.6-9.5C.7 7.7 2.5 4 6.2 4 8.3 4 10 5.1 12 7c2-1.9 3.7-3 5.8-3 3.7 0 5.5 3.7 3.8 7.5C19.5 15.8 12 21 12 21z"/></svg></div>
-          <div class="t">FAW Tech Prize: Frontier Innovation Award</div>
+          <div class="t">FAW Tech Prize: Frontier Innovation Award, 3rd place</div>
         </a>
         <a class="ach reveal" href="https://storymaps.arcgis.com/stories/01b86cbcfe3846e68dff6bd458845928" target="_blank" rel="noopener">
           <div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
           <div class="t">Esri Women and GIS, Vol. 2 (featured)</div>
         </a>
+        <div class="ach reveal">
+          <div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15a4 4 0 100-8 4 4 0 000 8z"/><path d="M8.5 13.5L5 21l2-1 1 2 2.5-5.5M15.5 13.5L19 21l-2-1-1 2-2.5-5.5"/></svg></div>
+          <div class="t">Microsoft patent, contextualized group data</div>
+        </div>
       </div>
     </div>
   </section>
@@ -853,7 +877,7 @@
   <section>
     <div class="wrap">
       <div class="quote reveal">
-        <p>"UX research brings the human perspective into Gen AI evaluation and development, helping teams design intelligent systems that are useful, responsible and built around real user needs."</p>
+        <p>"Product strategy brings the human perspective into Gen AI evaluation and development, helping teams design intelligent systems that are useful, responsible and built around real user needs."</p>
       </div>
     </div>
   </section>
@@ -862,7 +886,7 @@
     <div class="wrap">
       <div class="contact reveal">
         <h2>Let's chat</h2>
-        <p>Open to conversations on GenAI UX research, geospatial product strategy and inclusive tech leadership.</p>
+        <p>Open to conversations on product strategy, AI agents and geospatial intelligence, and inclusive tech leadership.</p>
         <div class="contact-actions">
           <a class="btn btn-primary" href="mailto:cyhana.williams@outlook.com">Email me</a>
           <button class="btn btn-ghost" id="copyEmailBtn" type="button">Copy email</button>
