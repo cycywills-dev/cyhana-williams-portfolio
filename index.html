@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cyhana Williams: Career Portfolio</title>
-<meta name="description" content="Geo Insight. GenAI. Product Impact. Career portfolio of Cyhana Williams, Product Manager for AI agents, enterprise data and geospatial intelligence.">
+<title data-i18n="doc.title">Cyhana Williams: Career Portfolio</title>
+<meta name="description" data-i18n-content="doc.desc" content="Geo Insight. GenAI. Product Impact. Career portfolio of Cyhana Williams, Product Manager for AI agents, enterprise data and geospatial intelligence.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -113,6 +113,30 @@
     :root:not([data-theme="light"]) .theme-toggle .moon{display:none;}
     :root:not([data-theme="light"]) .theme-toggle .sun{display:block;}
   }
+
+  .lang-wrap{position:relative;}
+  .lang-toggle{
+    width:34px; height:34px; border-radius:50%; border:1px solid rgba(255,255,255,.2);
+    background:transparent; color:#F6EFE2; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    flex:none; transition:border-color .15s, transform .15s;
+  }
+  .lang-toggle:hover{border-color:var(--brown-light);}
+  .lang-toggle svg{width:17px; height:17px;}
+  .lang-menu{
+    position:absolute; top:44px; right:0; background:var(--surface); border:1px solid var(--line);
+    border-radius:12px; padding:6px; min-width:180px; box-shadow:0 14px 34px rgba(0,0,0,.28);
+    display:none; flex-direction:column; gap:2px; z-index:90;
+  }
+  .lang-menu.open{display:flex;}
+  .lang-option{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:9px 12px; border-radius:8px; background:none; border:none; cursor:pointer;
+    font-family:inherit; font-size:13.5px; font-weight:500; color:var(--ink); text-align:left; width:100%;
+  }
+  .lang-option:hover{background:var(--surface-2);}
+  .lang-option.active{color:var(--brown-dark); font-weight:600;}
+  .lang-option .check{width:14px; height:14px; color:var(--brown); opacity:0; flex:none;}
+  .lang-option.active .check{opacity:1;}
 
   @media (max-width:760px){
     .navlinks{
@@ -430,19 +454,29 @@
   <nav class="nav">
     <a href="#home" class="brand">Cyhana <span>Williams</span></a>
     <ul class="navlinks" id="navlinks">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#tech">Tech Portfolio</a></li>
-      <li><a href="#gis">GIS Portfolio</a></li>
-      <li><a href="#initiatives">Initiatives</a></li>
-      <li><a href="#contact">Let's chat</a></li>
+      <li><a href="#home" data-i18n="nav.home">Home</a></li>
+      <li><a href="#about" data-i18n="nav.about">About</a></li>
+      <li><a href="#tech" data-i18n="nav.tech">Tech Portfolio</a></li>
+      <li><a href="#gis" data-i18n="nav.gis">GIS Portfolio</a></li>
+      <li><a href="#initiatives" data-i18n="nav.initiatives">Initiatives</a></li>
+      <li><a href="#contact" data-i18n="nav.contact">Let's chat</a></li>
     </ul>
     <div class="navright">
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark theme" type="button">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark theme" data-i18n-aria="aria.theme" type="button">
         <svg class="moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>
         <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.2M12 19.8V22M4.2 4.2l1.5 1.5M18.3 18.3l1.5 1.5M2 12h2.2M19.8 12H22M4.2 19.8l1.5-1.5M18.3 5.7l1.5-1.5"/></svg>
       </button>
-      <button class="navtoggle" id="navtoggle" aria-label="Toggle menu">&#9776;</button>
+      <div class="lang-wrap">
+        <button class="lang-toggle" id="langToggle" aria-label="Change language" data-i18n-aria="aria.lang" aria-haspopup="true" aria-expanded="false" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18 14 14 0 010-18z"/></svg>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <button class="lang-option" data-lang="en" type="button"><span>English</span><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></button>
+          <button class="lang-option" data-lang="no" type="button"><span>Norsk (bokmål)</span><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></button>
+          <button class="lang-option" data-lang="fr" type="button"><span>Français</span><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></button>
+        </div>
+      </div>
+      <button class="navtoggle" id="navtoggle" aria-label="Toggle menu" data-i18n-aria="aria.navtoggle">&#9776;</button>
     </div>
   </nav>
 </header>
@@ -453,13 +487,13 @@
     <div class="wrap">
       <div class="hero-inner">
         <div>
-          <p class="who">With Cyhana Williams</p>
-          <h1>Geo insight. GenAI. Product impact.</h1>
-          <p class="lede">Product Manager and strategist across AI agents, enterprise data and geospatial intelligence. I turn spatial and operational data into product strategy, from AI experiences used by millions of Microsoft 365 users to a distribution system that cut operating costs by about 50%.</p>
+          <p class="who" data-i18n="hero.who">With Cyhana Williams</p>
+          <h1 data-i18n="hero.h1">Geo insight. GenAI. Product impact.</h1>
+          <p class="lede" data-i18n="hero.lede">Product Manager and strategist across AI agents, enterprise data and geospatial intelligence. I turn spatial and operational data into product strategy, from AI experiences used by millions of Microsoft 365 users to a distribution system that cut operating costs by about 50%.</p>
           <div class="hero-actions">
-            <a href="#about" class="btn btn-primary">Read my story</a>
-            <a href="#contact" class="btn btn-ghost">Let's chat</a>
-            <a href="files/Cyhana-Williams-CV.pdf" class="btn btn-outline" style="border-color:rgba(246,239,226,.35); color:#F6EFE2;" target="_blank" rel="noopener">Download CV <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg></a>
+            <a href="#about" class="btn btn-primary" data-i18n="hero.btnStory">Read my story</a>
+            <a href="#contact" class="btn btn-ghost" data-i18n="hero.btnChat">Let's chat</a>
+            <a href="files/Cyhana-Williams-CV.pdf" class="btn btn-outline" style="border-color:rgba(246,239,226,.35); color:#F6EFE2;" target="_blank" rel="noopener"><span data-i18n="hero.btnCV">Download CV</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg></a>
           </div>
         </div>
         <div class="portrait">
@@ -471,20 +505,20 @@
       <div class="stats">
         <div class="stat" data-ring data-pct="50" data-prefix="&gt;" data-value="50" data-suffix="%">
           <div class="ring"><svg viewBox="0 0 64 64"><circle class="ring-bg" cx="32" cy="32" r="26"/><circle class="ring-fg" cx="32" cy="32" r="26"/></svg><div class="ring-label">0%</div></div>
-          <div class="label">Improvement to LLM output using human evaluations</div>
+          <div class="label" data-i18n="hero.stat1">Improvement to LLM output using human evaluations</div>
         </div>
         <div class="stat" data-ring data-pct="50" data-prefix="-" data-value="50" data-suffix="%">
           <div class="ring"><svg viewBox="0 0 64 64"><circle class="ring-bg" cx="32" cy="32" r="26"/><circle class="ring-fg" cx="32" cy="32" r="26"/></svg><div class="ring-label">0%</div></div>
-          <div class="label">Time reduction for research cycles using AI</div>
+          <div class="label" data-i18n="hero.stat2">Time reduction for research cycles using AI</div>
         </div>
         <div class="stat" data-ring data-pct="50" data-prefix="" data-value="50" data-suffix="%&#8595;">
           <div class="ring"><svg viewBox="0 0 64 64"><circle class="ring-bg" cx="32" cy="32" r="26"/><circle class="ring-fg" cx="32" cy="32" r="26"/></svg><div class="ring-label">0%</div></div>
-          <div class="label">FMCG operations cost reduction</div>
+          <div class="label" data-i18n="hero.stat3">FMCG operations cost reduction</div>
         </div>
         <div class="stat" data-dots data-value="80000" data-suffix="+">
           <div class="dotgrid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
           <div class="num-counter" data-value="80000" data-suffix="+">0+</div>
-          <div class="label">FMCG locations mapped and digitized</div>
+          <div class="label" data-i18n="hero.stat4">FMCG locations mapped and digitized</div>
         </div>
       </div>
     </div>
@@ -493,7 +527,7 @@
   <section>
     <div class="wrap">
       <div class="quote reveal">
-        <p>"The future of intelligent products lies at the intersection of spatial insights, AI capabilities and human understanding, where geography shows patterns, AI surfaces possibilities and product strategy grounds those possibilities into evolving, user-centric experiences. Together, they turn complex data into sustainable strategic decisions."</p>
+        <p>"<span data-i18n="quote1">The future of intelligent products lies at the intersection of spatial insights, AI capabilities and human understanding, where geography shows patterns, AI surfaces possibilities and product strategy grounds those possibilities into evolving, user-centric experiences. Together, they turn complex data into sustainable strategic decisions.</span>"</p>
       </div>
     </div>
   </section>
@@ -501,44 +535,44 @@
   <section id="skills">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">Skills</p>
-        <h2>What I bring</h2>
+        <p class="eyebrow" data-i18n="skills.eyebrow">Skills</p>
+        <h2 data-i18n="skills.h2">What I bring</h2>
       </div>
       <div class="skills-groups">
         <div class="skills-group reveal">
-          <p class="skills-group-title">Product management & strategy</p>
+          <p class="skills-group-title" data-i18n="skills.group1">Product management & strategy</p>
           <div class="skills">
-            <span class="skill">Product strategy</span>
-            <span class="skill">Roadmap prioritization</span>
-            <span class="skill">Requirements definition</span>
-            <span class="skill">Customer research & insights</span>
-            <span class="skill">Stakeholder & executive alignment</span>
-            <span class="skill">Go-to-market planning</span>
-            <span class="skill">Agile product development</span>
-            <span class="skill">Program management</span>
+            <span class="skill" data-i18n="skills.pm1">Product strategy</span>
+            <span class="skill" data-i18n="skills.pm2">Roadmap prioritization</span>
+            <span class="skill" data-i18n="skills.pm3">Requirements definition</span>
+            <span class="skill" data-i18n="skills.pm4">Customer research & insights</span>
+            <span class="skill" data-i18n="skills.pm5">Stakeholder & executive alignment</span>
+            <span class="skill" data-i18n="skills.pm6">Go-to-market planning</span>
+            <span class="skill" data-i18n="skills.pm7">Agile product development</span>
+            <span class="skill" data-i18n="skills.pm8">Program management</span>
           </div>
         </div>
         <div class="skills-group reveal">
-          <p class="skills-group-title">AI & data platforms</p>
+          <p class="skills-group-title" data-i18n="skills.group2">AI & data platforms</p>
           <div class="skills">
-            <span class="skill">AI agents</span>
-            <span class="skill">Agentic AI UX research</span>
-            <span class="skill">Human-in-the-loop LLM evaluation</span>
-            <span class="skill">GenAI UX (GenUX) evaluation</span>
-            <span class="skill">Knowledge graphs (Microsoft Graph)</span>
-            <span class="skill">Prompt & context engineering</span>
-            <span class="skill">Computer use agent UX research</span>
+            <span class="skill" data-i18n="skills.ai1">AI agents</span>
+            <span class="skill" data-i18n="skills.ai2">Agentic AI UX research</span>
+            <span class="skill" data-i18n="skills.ai3">Human-in-the-loop LLM evaluation</span>
+            <span class="skill" data-i18n="skills.ai4">GenAI UX (GenUX) evaluation</span>
+            <span class="skill" data-i18n="skills.ai5">Knowledge graphs (Microsoft Graph)</span>
+            <span class="skill" data-i18n="skills.ai6">Prompt & context engineering</span>
+            <span class="skill" data-i18n="skills.ai7">Computer use agent UX research</span>
           </div>
         </div>
         <div class="skills-group reveal">
-          <p class="skills-group-title">Geospatial & operational data</p>
+          <p class="skills-group-title" data-i18n="skills.group3">Geospatial & operational data</p>
           <div class="skills">
-            <span class="skill">Geospatial program management & product development</span>
-            <span class="skill">Remote sensing & satellite imagery</span>
-            <span class="skill">Spatio-temporal analysis</span>
-            <span class="skill">Route optimization & territory mapping</span>
-            <span class="skill">Location intelligence strategy</span>
-            <span class="skill">AI & geospatial solutions</span>
+            <span class="skill" data-i18n="skills.geo1">Geospatial program management & product development</span>
+            <span class="skill" data-i18n="skills.geo2">Remote sensing & satellite imagery</span>
+            <span class="skill" data-i18n="skills.geo3">Spatio-temporal analysis</span>
+            <span class="skill" data-i18n="skills.geo4">Route optimization & territory mapping</span>
+            <span class="skill" data-i18n="skills.geo5">Location intelligence strategy</span>
+            <span class="skill" data-i18n="skills.geo6">AI & geospatial solutions</span>
           </div>
         </div>
       </div>
@@ -548,8 +582,8 @@
   <section id="about">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">About</p>
-        <h2>Cyhana's bio</h2>
+        <p class="eyebrow" data-i18n="about.eyebrow">About</p>
+        <h2 data-i18n="about.h2">Cyhana's bio</h2>
       </div>
       <div class="about-grid">
         <div class="about-photo reveal">
@@ -559,50 +593,50 @@
             <div class="tl-item open" data-idx="0">
               <div class="tl-marker"></div>
               <div class="tl-body">
-                <button class="tl-head" type="button"><span class="tl-title">AI UX Researcher II</span><span class="tl-org">Microsoft, current</span></button>
-                <div class="tl-detail"><div class="tl-detail-inner"><p>Shape product direction for AI agents including the Researcher agent in Microsoft 365 Copilot, People Agent and Org Explorer. Co-created a human evaluation governance framework that improved AI output quality by 50% and was adopted as the standard across multiple research teams.</p></div></div>
+                <button class="tl-head" type="button"><span class="tl-title" data-i18n="tl0.title">AI UX Researcher II</span><span class="tl-org" data-i18n="tl0.org">Microsoft, current</span></button>
+                <div class="tl-detail"><div class="tl-detail-inner"><p data-i18n="tl0.detail">Shape product direction for AI agents including the Researcher agent in Microsoft 365 Copilot, People Agent and Org Explorer. Co-created a human evaluation governance framework that improved AI output quality by 50% and was adopted as the standard across multiple research teams.</p></div></div>
               </div>
             </div>
             <div class="tl-item" data-idx="1">
               <div class="tl-marker"></div>
               <div class="tl-body">
-                <button class="tl-head" type="button"><span class="tl-title">Founder & Host</span><span class="tl-org">Unconventional Impact, since 2026</span></button>
-                <div class="tl-detail"><div class="tl-detail-inner"><p>Built and launched a multi-channel media platform from zero, owning positioning, content strategy and go-to-market across LinkedIn, YouTube and Medium, and proposed the GeoAI Context Intelligence framework.</p></div></div>
+                <button class="tl-head" type="button"><span class="tl-title" data-i18n="tl1.title">Founder & Host</span><span class="tl-org" data-i18n="tl1.org">Unconventional Impact, since 2026</span></button>
+                <div class="tl-detail"><div class="tl-detail-inner"><p data-i18n="tl1.detail">Built and launched a multi-channel media platform from zero, owning positioning, content strategy and go-to-market across LinkedIn, YouTube and Medium, and proposed the GeoAI Context Intelligence framework.</p></div></div>
               </div>
             </div>
             <div class="tl-item" data-idx="2">
               <div class="tl-marker"></div>
               <div class="tl-body">
-                <button class="tl-head" type="button"><span class="tl-title">Co-Founder</span><span class="tl-org">African Women in GIS, ongoing</span></button>
-                <div class="tl-detail"><div class="tl-detail-inner"><p>Grew a 1,000+ member, 30+ country network averaging about 10% growth per quarter, leading a 15+ person admin and volunteer team.</p></div></div>
+                <button class="tl-head" type="button"><span class="tl-title" data-i18n="tl2.title">Co-Founder</span><span class="tl-org" data-i18n="tl2.org">African Women in GIS, ongoing</span></button>
+                <div class="tl-detail"><div class="tl-detail-inner"><p data-i18n="tl2.detail">Grew a 1,000+ member, 30+ country network averaging about 10% growth per quarter, leading a 15+ person admin and volunteer team.</p></div></div>
               </div>
             </div>
             <div class="tl-item" data-idx="3">
               <div class="tl-marker"></div>
               <div class="tl-body">
-                <button class="tl-head" type="button"><span class="tl-title">GIS Mapping Specialist</span><span class="tl-org">Coca-Cola Beverages Africa</span></button>
-                <div class="tl-detail"><div class="tl-detail-inner"><p>Designed and delivered an optimized route-to-market system across 80,000+ customer locations in Ghana, from requirements through rollout, cutting operational costs by about 50%.</p></div></div>
+                <button class="tl-head" type="button"><span class="tl-title" data-i18n="tl3.title">GIS Mapping Specialist</span><span class="tl-org">Coca-Cola Beverages Africa</span></button>
+                <div class="tl-detail"><div class="tl-detail-inner"><p data-i18n="tl3.detail">Designed and delivered an optimized route-to-market system across 80,000+ customer locations in Ghana, from requirements through rollout, cutting operational costs by about 50%.</p></div></div>
               </div>
             </div>
             <div class="tl-item" data-idx="4">
               <div class="tl-marker"></div>
               <div class="tl-body">
-                <button class="tl-head" type="button"><span class="tl-title">Product Manager, GeoAI Solutions</span><span class="tl-org">Henson Geodata Technologies</span></button>
-                <div class="tl-detail"><div class="tl-detail-inner"><p>Owned product delivery for IGEZA (now MyAgro360), coordinating software, data and farmer research teams, and led go-to-market planning that won the Frontier Innovation Award.</p></div></div>
+                <button class="tl-head" type="button"><span class="tl-title" data-i18n="tl4.title">Product Manager, GeoAI Solutions</span><span class="tl-org">Henson Geodata Technologies</span></button>
+                <div class="tl-detail"><div class="tl-detail-inner"><p data-i18n="tl4.detail">Owned product delivery for IGEZA (now MyAgro360), coordinating software, data and farmer research teams, and led go-to-market planning that won the Frontier Innovation Award.</p></div></div>
               </div>
             </div>
           </div>
 
-          <a class="btn btn-outline socials-btn" href="https://linktr.ee/cyhana" target="_blank" rel="noopener">Socials &#8594;</a>
+          <a class="btn btn-outline socials-btn" href="https://linktr.ee/cyhana" target="_blank" rel="noopener"><span data-i18n="about.socials">Socials</span> &#8594;</a>
         </div>
         <div class="about-body reveal">
-          <p>Cyhana Williams is a product manager and strategist with 8+ years across enterprise AI, data platforms and geospatial intelligence. She turns complex operational and spatial data into product strategy and business decisions, from AI agents used by millions of Microsoft 365 users to a distribution system that cut operating costs by about 50%.</p>
-          <p>At Microsoft, she has shaped product direction for AI agents including the Researcher agent in Microsoft 365 Copilot, People Agent and Org Explorer, running 40+ customer studies and co-creating a human evaluation governance framework that improved AI output quality by 50% and was adopted as the standard across multiple research teams.</p>
-          <p>Her geospatial analysis in the Route-to-Market project at Coca-Cola Beverages Africa, Voltic Ghana, took distribution strategy from requirements through rollout, optimizing 80,000+ customer locations and reducing operational costs by about 50% while preventing distributor territory disputes.</p>
-          <p>At Henson Geodata Technologies, she was Product Manager for GeoAI Solutions, owning delivery of IGEZA (now MyAgro360), an AI-powered pest and disease management product, and leading go-to-market planning that won the Frontier Innovation Award at the Fall Armyworm Tech Prize.</p>
-          <p>Beyond her core product work, Cyhana co-founded African Women in GIS, a 1,000+ member community across 30+ countries, and founded Unconventional Impact, a media platform built around her original GeoAI Context Intelligence framework for combining geospatial and AI thinking in unconventional fields.</p>
-          <p>Together, her work advances product strategy for AI and geospatial solutions, and advocates for inclusion in the global tech and geospatial community. She believes that diverse voices shape the future of technology.</p>
-          <p style="font-size:13px; color:var(--ink-faint);">Tip: click a step in the timeline to the left to see the highlight from each chapter.</p>
+          <p data-i18n="about.p1">Cyhana Williams is a product manager and strategist with 8+ years across enterprise AI, data platforms and geospatial intelligence. She turns complex operational and spatial data into product strategy and business decisions, from AI agents used by millions of Microsoft 365 users to a distribution system that cut operating costs by about 50%.</p>
+          <p data-i18n="about.p2">At Microsoft, she has shaped product direction for AI agents including the Researcher agent in Microsoft 365 Copilot, People Agent and Org Explorer, running 40+ customer studies and co-creating a human evaluation governance framework that improved AI output quality by 50% and was adopted as the standard across multiple research teams.</p>
+          <p data-i18n="about.p3">Her geospatial analysis in the Route-to-Market project at Coca-Cola Beverages Africa, Voltic Ghana, took distribution strategy from requirements through rollout, optimizing 80,000+ customer locations and reducing operational costs by about 50% while preventing distributor territory disputes.</p>
+          <p data-i18n="about.p4">At Henson Geodata Technologies, she was Product Manager for GeoAI Solutions, owning delivery of IGEZA (now MyAgro360), an AI-powered pest and disease management product, and leading go-to-market planning that won the Frontier Innovation Award at the Fall Armyworm Tech Prize.</p>
+          <p data-i18n="about.p5">Beyond her core product work, Cyhana co-founded African Women in GIS, a 1,000+ member community across 30+ countries, and founded Unconventional Impact, a media platform built around her original GeoAI Context Intelligence framework for combining geospatial and AI thinking in unconventional fields.</p>
+          <p data-i18n="about.p6">Together, her work advances product strategy for AI and geospatial solutions, and advocates for inclusion in the global tech and geospatial community. She believes that diverse voices shape the future of technology.</p>
+          <p style="font-size:13px; color:var(--ink-faint);" data-i18n="about.tip">Tip: click a step in the timeline to the left to see the highlight from each chapter.</p>
         </div>
       </div>
     </div>
@@ -611,7 +645,7 @@
   <section>
     <div class="wrap">
       <div class="quote reveal">
-        <p>"Some of the most powerful business insights appear when data is placed on a map, because location intelligence reveals the hidden relationships between customers, operations and opportunity."</p>
+        <p>"<span data-i18n="quote2">Some of the most powerful business insights appear when data is placed on a map, because location intelligence reveals the hidden relationships between customers, operations and opportunity.</span>"</p>
       </div>
     </div>
   </section>
@@ -619,68 +653,68 @@
   <section id="tech">
     <div class="wrap">
       <div class="section-head left reveal">
-        <p class="eyebrow">Tech Portfolio</p>
-        <h2>Tech product management portfolio</h2>
-        <p>Product strategy and GenAI evaluation leadership for AI agents at Microsoft, plus GeoAI product management in agri-tech.</p>
+        <p class="eyebrow" data-i18n="tech.eyebrow">Tech Portfolio</p>
+        <h2 data-i18n="tech.h2">Tech product management portfolio</h2>
+        <p data-i18n="tech.p">Product strategy and GenAI evaluation leadership for AI agents at Microsoft, plus GeoAI product management in agri-tech.</p>
       </div>
 
       <div class="highlights">
-        <div class="highlight reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Co-created an AI output evaluation governance process</div>
-        <div class="highlight reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Microsoft patent for generating contextualized group data</div>
-        <div class="highlight reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Ran 40+ customer studies across Org Explorer and People Agent</div>
-        <div class="highlight reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Led go-to-market and won the Frontier Innovation Award for IGEZA, from 288 applicants</div>
+        <div class="highlight reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="tech.hl1">Co-created an AI output evaluation governance process</span></div>
+        <div class="highlight reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="tech.hl2">Microsoft patent for generating contextualized group data</span></div>
+        <div class="highlight reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="tech.hl3">Ran 40+ customer studies across Org Explorer and People Agent</span></div>
+        <div class="highlight reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="tech.hl4">Led go-to-market and won the Frontier Innovation Award for IGEZA, from 288 applicants</span></div>
       </div>
 
       <div class="tabs reveal">
         <div class="tab-list">
-          <button class="tab-btn active" data-target="tech-1" type="button">Researcher agent, M365 Copilot</button>
-          <button class="tab-btn" data-target="tech-2" type="button">Prompt evaluations</button>
-          <button class="tab-btn" data-target="tech-3" type="button">People Agent</button>
-          <button class="tab-btn" data-target="tech-4" type="button">Org Explorer</button>
-          <button class="tab-btn" data-target="tech-5" type="button">IGEZA</button>
+          <button class="tab-btn active" data-target="tech-1" type="button" data-i18n="tech.tab1">Researcher agent, M365 Copilot</button>
+          <button class="tab-btn" data-target="tech-2" type="button" data-i18n="tech.tab2">Prompt evaluations</button>
+          <button class="tab-btn" data-target="tech-3" type="button" data-i18n="tech.tab3">People Agent</button>
+          <button class="tab-btn" data-target="tech-4" type="button" data-i18n="tech.tab4">Org Explorer</button>
+          <button class="tab-btn" data-target="tech-5" type="button" data-i18n="tech.tab5">IGEZA</button>
         </div>
         <div class="tab-panels">
           <div class="tab-panel active" id="tech-1">
             <div class="case">
-              <div class="case-head"><h3>Researcher agent, Microsoft 365 Copilot</h3><span class="case-org">Microsoft, AI UX Researcher II</span></div>
-              <p>I led Generative UI/UX (GenUX) research and owned human evaluation of AI-generated visual output quality for the Researcher agent, a deep research agent available to Microsoft 365 enterprise customers, turning quality findings into prioritized product improvements.</p>
-              <p>Across my time on Microsoft's Researcher team, I've built customer-centered evaluation rubrics and assessment frameworks for AI-generated visual and data-rich experiences, giving data science and engineering teams standardized quality metrics that guide model optimization, while strengthening my program management, product strategy and AI governance capabilities.</p>
+              <div class="case-head"><h3 data-i18n="tech.t1.h3">Researcher agent, Microsoft 365 Copilot</h3><span class="case-org" data-i18n="tech.t1.org">Microsoft, AI UX Researcher II</span></div>
+              <p data-i18n="tech.t1.p1">I led Generative UI/UX (GenUX) research and owned human evaluation of AI-generated visual output quality for the Researcher agent, a deep research agent available to Microsoft 365 enterprise customers, turning quality findings into prioritized product improvements.</p>
+              <p data-i18n="tech.t1.p2">Across my time on Microsoft's Researcher team, I've built customer-centered evaluation rubrics and assessment frameworks for AI-generated visual and data-rich experiences, giving data science and engineering teams standardized quality metrics that guide model optimization, while strengthening my program management, product strategy and AI governance capabilities.</p>
             </div>
           </div>
           <div class="tab-panel" id="tech-2">
             <div class="case">
-              <div class="case-head"><h3>People prompt output evaluations</h3><span class="case-org">Microsoft, People Agent team</span></div>
-              <p>As co-Lead UX Researcher, I co-created a user-centric prompt evaluation governance framework with a Content Designer to improve the quality, consistency and trustworthiness of AI responses to people-related queries. Establishing structured evaluation processes, success metrics and feedback loops drove a 50% improvement in AI response quality, while enabling scalable human-in-the-loop assessment across teams.</p>
+              <div class="case-head"><h3 data-i18n="tech.t2.h3">People prompt output evaluations</h3><span class="case-org" data-i18n="tech.t2.org">Microsoft, People Agent team</span></div>
+              <p data-i18n="tech.t2.p1">As co-Lead UX Researcher, I co-created a user-centric prompt evaluation governance framework with a Content Designer to improve the quality, consistency and trustworthiness of AI responses to people-related queries. Establishing structured evaluation processes, success metrics and feedback loops drove a 50% improvement in AI response quality, while enabling scalable human-in-the-loop assessment across teams.</p>
               <div class="mini-chart">
-                <p class="chart-title">AI response quality score, before vs. after</p>
-                <div class="bar-row"><span class="bar-tag">Before</span><div class="bar-track"><div class="bar-fill" data-width="100"></div></div><span class="bar-val">Baseline</span></div>
-                <div class="bar-row"><span class="bar-tag">After</span><div class="bar-track"><div class="bar-fill accent" data-width="150"></div></div><span class="bar-val">+50%</span></div>
-                <p class="chart-caption">With the new evaluation governance framework, response quality scored 50% higher than the baseline.</p>
+                <p class="chart-title" data-i18n="tech.t2.chartTitle">AI response quality score, before vs. after</p>
+                <div class="bar-row"><span class="bar-tag" data-i18n="chart.before">Before</span><div class="bar-track"><div class="bar-fill" data-width="100"></div></div><span class="bar-val" data-i18n="tech.t2.barValBefore">Baseline</span></div>
+                <div class="bar-row"><span class="bar-tag" data-i18n="chart.after">After</span><div class="bar-track"><div class="bar-fill accent" data-width="150"></div></div><span class="bar-val">+50%</span></div>
+                <p class="chart-caption" data-i18n="tech.t2.chartCaption">With the new evaluation governance framework, response quality scored 50% higher than the baseline.</p>
               </div>
             </div>
           </div>
           <div class="tab-panel" id="tech-3">
             <div class="case">
-              <div class="case-head"><h3>People Agent</h3><span class="case-org">Microsoft, People Agent product team</span></div>
-              <p>From October 2024 to January 2026, I led UX research for People Agent, an AI agent built on Microsoft Graph that shows employees how they're connected to colleagues and the work they share, translating customer needs into design and launch decisions on how people insights are surfaced.</p>
+              <div class="case-head"><h3 data-i18n="tech.t3.h3">People Agent</h3><span class="case-org" data-i18n="tech.t3.org">Microsoft, People Agent product team</span></div>
+              <p data-i18n="tech.t3.p1">From October 2024 to January 2026, I led UX research for People Agent, an AI agent built on Microsoft Graph that shows employees how they're connected to colleagues and the work they share, translating customer needs into design and launch decisions on how people insights are surfaced.</p>
             </div>
           </div>
           <div class="tab-panel" id="tech-4">
             <div class="case">
-              <div class="case-head"><h3>Org Explorer</h3><span class="case-org">Microsoft, Lead UX Researcher</span></div>
-              <p>From September 2020 to July 2024, I informed product priorities and launch decisions for Org Explorer, a product that lets employees explore their organization's structure and teams, now serving all Microsoft 365 users. I ran 40+ customer studies across Org Explorer and People Agent, translating complex user and business needs into actionable roadmaps that guided a successful, scalable launch.</p>
+              <div class="case-head"><h3 data-i18n="tech.t4.h3">Org Explorer</h3><span class="case-org" data-i18n="tech.t4.org">Microsoft, Lead UX Researcher</span></div>
+              <p data-i18n="tech.t4.p1">From September 2020 to July 2024, I informed product priorities and launch decisions for Org Explorer, a product that lets employees explore their organization's structure and teams, now serving all Microsoft 365 users. I ran 40+ customer studies across Org Explorer and People Agent, translating complex user and business needs into actionable roadmaps that guided a successful, scalable launch.</p>
             </div>
           </div>
           <div class="tab-panel" id="tech-5">
             <div class="case">
-              <div class="case-head"><h3>IGEZA: Pest &amp; Disease Control System</h3><span class="case-org">Henson Geodata Technologies, Product Manager, GeoAI Solutions</span></div>
-              <p>As Product Manager for GeoAI Solutions, I owned product delivery and go-to-market for an AI-powered platform that enabled smallholder farmers to detect, report and respond to Fall Armyworm outbreaks.</p>
+              <div class="case-head"><h3 data-i18n="gis.igeza.h3">IGEZA: Pest &amp; Disease Control System</h3><span class="case-org" data-i18n="gis.igeza.org">Henson Geodata Technologies, Product Manager, GeoAI Solutions</span></div>
+              <p data-i18n="tech.t5.p1">As Product Manager for GeoAI Solutions, I owned product delivery and go-to-market for an AI-powered platform that enabled smallholder farmers to detect, report and respond to Fall Armyworm outbreaks.</p>
               <div class="funnel">
-                <div class="funnel-step"><div class="fn-num" data-value="288">0</div><div class="fn-label">Global applicants</div></div>
+                <div class="funnel-step"><div class="fn-num" data-value="288">0</div><div class="fn-label" data-i18n="funnel.globalApplicants">Global applicants</div></div>
                 <span class="fn-arrow">&#8594;</span>
-                <div class="funnel-step"><div class="fn-num" data-prefix="Top " data-value="20">Top 0</div><div class="fn-label">Finalists, USAID Feed the Future</div></div>
+                <div class="funnel-step"><div class="fn-num" data-prefix="Top " data-i18n-prefix="funnel.topPrefix" data-value="20">Top 0</div><div class="fn-label" data-i18n="funnel.finalists">Finalists, USAID Feed the Future</div></div>
                 <span class="fn-arrow">&#8594;</span>
-                <div class="funnel-step highlight"><div class="fn-num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6.2 4.6 2.4 7.4L12 16.8 5.8 21.4l2.4-7.4L2 9.4h7.6z"/></svg></div><div class="fn-label">Frontier Innovation Award, 3rd place</div></div>
+                <div class="funnel-step highlight"><div class="fn-num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6.2 4.6 2.4 7.4L12 16.8 5.8 21.4l2.4-7.4L2 9.4h7.6z"/></svg></div><div class="fn-label" data-i18n="funnel.frontierAward">Frontier Innovation Award, 3rd place</div></div>
               </div>
             </div>
           </div>
@@ -692,62 +726,62 @@
   <section id="gis">
     <div class="wrap">
       <div class="section-head left reveal">
-        <p class="eyebrow">GIS Portfolio</p>
-        <h2>GIS product manager portfolio</h2>
-        <p>Product strategy, geospatial program management and GeoAI product development across retail distribution and agri-tech.</p>
+        <p class="eyebrow" data-i18n="gis.eyebrow">GIS Portfolio</p>
+        <h2 data-i18n="gis.h2">GIS product manager portfolio</h2>
+        <p data-i18n="gis.p">Product strategy, geospatial program management and GeoAI product development across retail distribution and agri-tech.</p>
       </div>
 
       <div class="tabs reveal">
         <div class="tab-list">
-          <button class="tab-btn active" data-target="gis-1" type="button">Route-to-market project</button>
-          <button class="tab-btn" data-target="gis-2" type="button">IGEZA: pest &amp; disease control</button>
+          <button class="tab-btn active" data-target="gis-1" type="button" data-i18n="gis.tab1">Route-to-market project</button>
+          <button class="tab-btn" data-target="gis-2" type="button" data-i18n="gis.tab2">IGEZA: pest &amp; disease control</button>
         </div>
         <div class="tab-panels">
           <div class="tab-panel active" id="gis-1">
             <div class="case">
               <div class="case-head">
-                <h3>Route-to-market project</h3>
+                <h3 data-i18n="gis.tab1">Route-to-market project</h3>
                 <span class="case-org">Coca-Cola Beverages Africa, Voltic Ghana</span>
               </div>
-              <p>As GIS Mapping Specialist for Route-to-Market Strategy at Coca-Cola Beverages Africa subsidiary Voltic Ghana, I designed and delivered an optimized route-to-market system, from requirements and stakeholder alignment through rollout to distributors.</p>
-              <p>By analyzing over 80,000 customer locations, I developed a route-to-market solution that reduced operational costs by 50%, improved delivery efficiency, established data-driven sales territories and prevented distributor territory disputes. This work contributed to the company receiving the 2020 Esri Special Achievement in GIS Award.</p>
+              <p data-i18n="gis.t1.p1">As GIS Mapping Specialist for Route-to-Market Strategy at Coca-Cola Beverages Africa subsidiary Voltic Ghana, I designed and delivered an optimized route-to-market system, from requirements and stakeholder alignment through rollout to distributors.</p>
+              <p data-i18n="gis.t1.p2">By analyzing over 80,000 customer locations, I developed a route-to-market solution that reduced operational costs by 50%, improved delivery efficiency, established data-driven sales territories and prevented distributor territory disputes. This work contributed to the company receiving the 2020 Esri Special Achievement in GIS Award.</p>
               <div class="mini-chart">
-                <p class="chart-title">Operational cost, before vs. after</p>
-                <div class="bar-row"><span class="bar-tag">Before</span><div class="bar-track"><div class="bar-fill" data-width="100"></div></div><span class="bar-val">100%</span></div>
-                <div class="bar-row"><span class="bar-tag">After</span><div class="bar-track"><div class="bar-fill accent" data-width="50"></div></div><span class="bar-val">50%</span></div>
-                <p class="chart-caption">Route-to-Market redesign, across 80,000+ analyzed locations.</p>
+                <p class="chart-title" data-i18n="gis.t1.chartTitle">Operational cost, before vs. after</p>
+                <div class="bar-row"><span class="bar-tag" data-i18n="chart.before">Before</span><div class="bar-track"><div class="bar-fill" data-width="100"></div></div><span class="bar-val">100%</span></div>
+                <div class="bar-row"><span class="bar-tag" data-i18n="chart.after">After</span><div class="bar-track"><div class="bar-fill accent" data-width="50"></div></div><span class="bar-val">50%</span></div>
+                <p class="chart-caption" data-i18n="gis.t1.chartCaption">Route-to-Market redesign, across 80,000+ analyzed locations.</p>
               </div>
               <div class="badges">
-                <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6.2 4.6 2.4 7.4L12 16.8 5.8 21.4l2.4-7.4L2 9.4h7.6z"/></svg>Best Sales and Marketing Team (Voltic Ghana, CCBA)</span>
-                <a class="badge" href="https://events.esri.com/conference/sagList/?fa=List&amp;awardyear=2020" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6.2 4.6 2.4 7.4L12 16.8 5.8 21.4l2.4-7.4L2 9.4h7.6z"/></svg>Esri Special Achievement in GIS Award (Voltic Ghana Limited)<svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+                <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6.2 4.6 2.4 7.4L12 16.8 5.8 21.4l2.4-7.4L2 9.4h7.6z"/></svg><span data-i18n="gis.t1.badge1">Best Sales and Marketing Team (Voltic Ghana, CCBA)</span></span>
+                <a class="badge" href="https://events.esri.com/conference/sagList/?fa=List&amp;awardyear=2020" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6.2 4.6 2.4 7.4L12 16.8 5.8 21.4l2.4-7.4L2 9.4h7.6z"/></svg><span data-i18n="gis.t1.badge2">Esri Special Achievement in GIS Award (Voltic Ghana Limited)</span><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
               </div>
               <div class="thumb-row">
-                <button class="thumb" type="button" data-full="images/cw-gis-banner.jpg" data-caption="Coca-Cola Beverages Africa, Route-to-Market project"><img src="images/cw-gis-banner.jpg" alt="Coca-Cola Beverages Africa, Route-to-Market project" loading="lazy"></button>
-                <button class="thumb" type="button" data-full="images/cw-gis-cert.jpg" data-caption="Best Sales and Marketing Team award, Voltic Ghana"><img src="images/cw-gis-cert.jpg" alt="Best Sales and Marketing Team award, Voltic Ghana" loading="lazy"></button>
-                <button class="thumb" type="button" data-full="images/cw-gis-event.jpg" data-caption="Route-to-market territory mapping"><img src="images/cw-gis-event.jpg" alt="Route-to-market territory mapping" loading="lazy"></button>
-                <button class="thumb" type="button" data-full="images/cw-gis-team.jpg" data-caption="Route-to-market project team, Voltic Ghana"><img src="images/cw-gis-team.jpg" alt="Route-to-market project team, Voltic Ghana" loading="lazy"></button>
+                <button class="thumb" type="button" data-full="images/cw-gis-banner.jpg" data-caption="Coca-Cola Beverages Africa, Route-to-Market project" data-i18n-caption="gis.t1.thumb1"><img src="images/cw-gis-banner.jpg" alt="Coca-Cola Beverages Africa, Route-to-Market project" loading="lazy"></button>
+                <button class="thumb" type="button" data-full="images/cw-gis-cert.jpg" data-caption="Best Sales and Marketing Team award, Voltic Ghana" data-i18n-caption="gis.t1.thumb2"><img src="images/cw-gis-cert.jpg" alt="Best Sales and Marketing Team award, Voltic Ghana" loading="lazy"></button>
+                <button class="thumb" type="button" data-full="images/cw-gis-event.jpg" data-caption="Route-to-market territory mapping" data-i18n-caption="gis.t1.thumb3"><img src="images/cw-gis-event.jpg" alt="Route-to-market territory mapping" loading="lazy"></button>
+                <button class="thumb" type="button" data-full="images/cw-gis-team.jpg" data-caption="Route-to-market project team, Voltic Ghana" data-i18n-caption="gis.t1.thumb4"><img src="images/cw-gis-team.jpg" alt="Route-to-market project team, Voltic Ghana" loading="lazy"></button>
               </div>
             </div>
           </div>
           <div class="tab-panel" id="gis-2">
             <div class="case">
               <div class="case-head">
-                <h3>IGEZA: Pest &amp; Disease Control System</h3>
-                <span class="case-org">Henson Geodata Technologies, Product Manager, GeoAI Solutions</span>
+                <h3 data-i18n="gis.igeza.h3">IGEZA: Pest &amp; Disease Control System</h3>
+                <span class="case-org" data-i18n="gis.igeza.org">Henson Geodata Technologies, Product Manager, GeoAI Solutions</span>
               </div>
-              <p>As Product Manager for GeoAI Solutions at Henson Geodata Technologies, I owned delivery of IGEZA (now MyAgro360), coordinating software, data and farmer research teams to deliver an AI-powered pest and disease management product that helps farmers detect crop threats, find recommended pesticides and alert agricultural extension officers.</p>
-              <p>I led go-to-market planning and represented the product in client meetings and competitions, including pitching IGEZA at the Fall Armyworm Tech Prize in Kampala as one of 20 finalists from 288 applicants.</p>
-              <p>The team won the Frontier Innovation Award (3rd place), recognized by USAID, Feed the Future and FFRAR for its potential to improve food security and protect smallholder farmers across Africa.</p>
+              <p data-i18n="gis.t2.p1">As Product Manager for GeoAI Solutions at Henson Geodata Technologies, I owned delivery of IGEZA (now MyAgro360), coordinating software, data and farmer research teams to deliver an AI-powered pest and disease management product that helps farmers detect crop threats, find recommended pesticides and alert agricultural extension officers.</p>
+              <p data-i18n="gis.t2.p2">I led go-to-market planning and represented the product in client meetings and competitions, including pitching IGEZA at the Fall Armyworm Tech Prize in Kampala as one of 20 finalists from 288 applicants.</p>
+              <p data-i18n="gis.t2.p3">The team won the Frontier Innovation Award (3rd place), recognized by USAID, Feed the Future and FFRAR for its potential to improve food security and protect smallholder farmers across Africa.</p>
               <div class="funnel">
-                <div class="funnel-step"><div class="fn-num" data-value="288">0</div><div class="fn-label">Global applicants</div></div>
+                <div class="funnel-step"><div class="fn-num" data-value="288">0</div><div class="fn-label" data-i18n="funnel.globalApplicants">Global applicants</div></div>
                 <span class="fn-arrow">&#8594;</span>
-                <div class="funnel-step"><div class="fn-num" data-prefix="Top " data-value="20">Top 0</div><div class="fn-label">Finalists, USAID Feed the Future</div></div>
+                <div class="funnel-step"><div class="fn-num" data-prefix="Top " data-i18n-prefix="funnel.topPrefix" data-value="20">Top 0</div><div class="fn-label" data-i18n="funnel.finalists">Finalists, USAID Feed the Future</div></div>
                 <span class="fn-arrow">&#8594;</span>
-                <div class="funnel-step highlight"><div class="fn-num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6.2 4.6 2.4 7.4L12 16.8 5.8 21.4l2.4-7.4L2 9.4h7.6z"/></svg></div><div class="fn-label">Frontier Innovation Award, 3rd place</div></div>
+                <div class="funnel-step highlight"><div class="fn-num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6.2 4.6 2.4 7.4L12 16.8 5.8 21.4l2.4-7.4L2 9.4h7.6z"/></svg></div><div class="fn-label" data-i18n="funnel.frontierAward">Frontier Innovation Award, 3rd place</div></div>
               </div>
               <div class="badges">
-                <a class="badge" href="https://fallarmywormtech.challenges.org/winners/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6.2 4.6 2.4 7.4L12 16.8 5.8 21.4l2.4-7.4L2 9.4h7.6z"/></svg>Frontier Innovation Award, 3rd place ($50,000)<svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
-                <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 11-5.2-3"/></svg>100,000+ digitized points of interest, Liberia</span>
+                <a class="badge" href="https://fallarmywormtech.challenges.org/winners/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6.2 4.6 2.4 7.4L12 16.8 5.8 21.4l2.4-7.4L2 9.4h7.6z"/></svg><span data-i18n="gis.t2.badge1">Frontier Innovation Award, 3rd place ($50,000)</span><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+                <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 11-5.2-3"/></svg><span data-i18n="gis.t2.badge2">100,000+ digitized points of interest, Liberia</span></span>
               </div>
             </div>
           </div>
@@ -759,17 +793,17 @@
   <section id="initiatives">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">Initiatives</p>
-        <h2>African Women in GIS</h2>
-        <p>AWiGIS is a 1,000+ pan-African network advancing the participation and leadership of women in GIS, geospatial sciences, remote sensing and related technologies.</p>
-        <a class="btn btn-outline" style="margin-top:6px;" href="https://linktr.ee/africanwomeningis" target="_blank" rel="noopener">AWiGIS info &amp; links <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></a>
+        <p class="eyebrow" data-i18n="init.eyebrow">Initiatives</p>
+        <h2 data-i18n="init.h2">African Women in GIS</h2>
+        <p data-i18n="init.p">AWiGIS is a 1,000+ pan-African network advancing the participation and leadership of women in GIS, geospatial sciences, remote sensing and related technologies.</p>
+        <a class="btn btn-outline" style="margin-top:6px;" href="https://linktr.ee/africanwomeningis" target="_blank" rel="noopener"><span data-i18n="init.infoBtn">AWiGIS info &amp; links</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></a>
       </div>
 
       <div class="init-stats">
-        <div class="init-stat reveal" data-value="1000" data-suffix="+"><div class="num">0+</div><div class="label">Global members</div></div>
-        <div class="init-stat reveal" data-value="30" data-suffix="+"><div class="num">0+</div><div class="label">Countries worldwide</div></div>
-        <div class="init-stat reveal" data-value="20" data-suffix="+"><div class="num">0+</div><div class="label">Career impacting training events</div></div>
-        <div class="init-stat reveal" data-value="10" data-suffix="+"><div class="num">0+</div><div class="label">Mentorship cohorts</div></div>
+        <div class="init-stat reveal" data-value="1000" data-suffix="+"><div class="num">0+</div><div class="label" data-i18n="init.stat1">Global members</div></div>
+        <div class="init-stat reveal" data-value="30" data-suffix="+"><div class="num">0+</div><div class="label" data-i18n="init.stat2">Countries worldwide</div></div>
+        <div class="init-stat reveal" data-value="20" data-suffix="+"><div class="num">0+</div><div class="label" data-i18n="init.stat3">Career impacting training events</div></div>
+        <div class="init-stat reveal" data-value="10" data-suffix="+"><div class="num">0+</div><div class="label" data-i18n="init.stat4">Mentorship cohorts</div></div>
       </div>
 
       <div class="network reveal">
@@ -800,44 +834,44 @@
           <circle class="net-dot" cx="400" cy="165" r="3"/>
           <circle class="net-core" cx="230" cy="110" r="15"/>
         </svg>
-        <p class="net-caption">AWiGIS: one pan-African hub, members pulsing in across 30+ countries</p>
+        <p class="net-caption" data-i18n="init.netCaption">AWiGIS: one pan-African hub, members pulsing in across 30+ countries</p>
       </div>
 
-      <p style="color:var(--ink-soft); max-width:760px; margin:0 auto 14px;">Through mentorship, capacity building, knowledge sharing and professional networking, AWiGIS empowers women across Africa to develop technical expertise and build impactful careers in the geospatial sector. With members spanning 30+ diverse countries and backgrounds, the organization fosters a collaborative community that supports learning, innovation and leadership.</p>
-      <p style="color:var(--ink-soft); max-width:760px; margin:0 auto;">By connecting emerging professionals with experienced practitioners and industry partners, AWiGIS is helping shape a more inclusive geospatial ecosystem and inspiring the next generation of African women leaders in STEM.</p>
+      <p style="color:var(--ink-soft); max-width:760px; margin:0 auto 14px;" data-i18n="init.p1">Through mentorship, capacity building, knowledge sharing and professional networking, AWiGIS empowers women across Africa to develop technical expertise and build impactful careers in the geospatial sector. With members spanning 30+ diverse countries and backgrounds, the organization fosters a collaborative community that supports learning, innovation and leadership.</p>
+      <p style="color:var(--ink-soft); max-width:760px; margin:0 auto;" data-i18n="init.p2">By connecting emerging professionals with experienced practitioners and industry partners, AWiGIS is helping shape a more inclusive geospatial ecosystem and inspiring the next generation of African women leaders in STEM.</p>
 
       <div class="thumb-row" style="justify-content:center; margin-top:22px;">
-        <button class="thumb" type="button" data-full="images/initiatives-1.jpg" data-caption="African Women in GIS, connecting a pan-African network"><img src="images/initiatives-1.jpg" alt="African Women in GIS, connecting a pan-African network" loading="lazy"></button>
+        <button class="thumb" type="button" data-full="images/initiatives-1.jpg" data-caption="African Women in GIS, connecting a pan-African network" data-i18n-caption="init.thumbCaption"><img src="images/initiatives-1.jpg" alt="African Women in GIS, connecting a pan-African network" loading="lazy"></button>
       </div>
 
-      <h3 style="text-align:center; margin-top:48px; font-size:17px;">Top collaborators</h3>
+      <h3 style="text-align:center; margin-top:48px; font-size:17px;" data-i18n="init.collabHeading">Top collaborators</h3>
       <div class="collab-grid">
-        <a class="collab reveal" href="https://womeningeospatial.org/" target="_blank" rel="noopener"><div class="mark">WG</div>Women+ in Geospatial<span class="collab-link">Visit site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></span></a>
-        <a class="collab reveal" href="https://www.digitalearthafrica.org/" target="_blank" rel="noopener"><div class="mark">DEA</div>Digital Earth Africa<span class="collab-link">Visit site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></span></a>
-        <a class="collab reveal" href="https://data.spacehubs.africa/database/entity/nonprofits/women-in-space-kenya/" target="_blank" rel="noopener"><div class="mark">WS</div>Women in Space Kenya<span class="collab-link">Profile <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></span></a>
-        <a class="collab reveal" href="https://linktr.ee/northstarofgis" target="_blank" rel="noopener"><div class="mark">NG</div>NorthStar of GIS: Black in Geography, GIS &amp; the Geosciences<span class="collab-link">Visit site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></span></a>
+        <a class="collab reveal" href="https://womeningeospatial.org/" target="_blank" rel="noopener"><div class="mark">WG</div>Women+ in Geospatial<span class="collab-link"><span data-i18n="action.visitSite">Visit site</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></span></a>
+        <a class="collab reveal" href="https://www.digitalearthafrica.org/" target="_blank" rel="noopener"><div class="mark">DEA</div>Digital Earth Africa<span class="collab-link"><span data-i18n="action.visitSite">Visit site</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></span></a>
+        <a class="collab reveal" href="https://data.spacehubs.africa/database/entity/nonprofits/women-in-space-kenya/" target="_blank" rel="noopener"><div class="mark">WS</div>Women in Space Kenya<span class="collab-link"><span data-i18n="action.profile">Profile</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></span></a>
+        <a class="collab reveal" href="https://linktr.ee/northstarofgis" target="_blank" rel="noopener"><div class="mark">NG</div>NorthStar of GIS: Black in Geography, GIS &amp; the Geosciences<span class="collab-link"><span data-i18n="action.visitSite">Visit site</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></span></a>
       </div>
 
       <div style="border-top:1px solid var(--line); margin:56px 0 0; padding-top:56px;">
         <div class="section-head reveal">
-          <p class="eyebrow">Initiatives</p>
-          <h2>Unconventional Impact</h2>
-          <p>A media platform spotlighting the people, ideas and organizations that innovate outside the lines, built around the original GeoAI Context Intelligence framework.</p>
-          <a class="btn btn-outline" style="margin-top:6px;" href="https://linktr.ee/unconventionalimpact" target="_blank" rel="noopener">Unconventional Impact info &amp; links <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></a>
+          <p class="eyebrow" data-i18n="init.eyebrow">Initiatives</p>
+          <h2 data-i18n="init2.h2">Unconventional Impact</h2>
+          <p data-i18n="init2.p">A media platform spotlighting the people, ideas and organizations that innovate outside the lines, built around the original GeoAI Context Intelligence framework.</p>
+          <a class="btn btn-outline" style="margin-top:6px;" href="https://linktr.ee/unconventionalimpact" target="_blank" rel="noopener"><span data-i18n="init2.infoBtn">Unconventional Impact info &amp; links</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></a>
         </div>
 
         <div class="highlights">
-          <div class="highlight reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Insightful interviews, live on YouTube</div>
-          <div class="highlight reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Impactful articles, published on Medium</div>
-          <div class="highlight reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Sharp takes shared on LinkedIn</div>
-          <div class="highlight reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Original playbooks, starting with GeoAI Context Intelligence</div>
+          <div class="highlight reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="init2.hl1">Insightful interviews, live on YouTube</span></div>
+          <div class="highlight reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="init2.hl2">Impactful articles, published on Medium</span></div>
+          <div class="highlight reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="init2.hl3">Sharp takes shared on LinkedIn</span></div>
+          <div class="highlight reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="init2.hl4">Original playbooks, starting with GeoAI Context Intelligence</span></div>
         </div>
 
         <div class="collab-grid">
-          <a class="collab reveal" href="https://unconventionalimpact.github.io/unconventional-impact-website/" target="_blank" rel="noopener"><div class="mark">W</div>Website<span class="collab-link">Visit site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></span></a>
-          <a class="collab reveal" href="https://www.youtube.com/@unconventionalimpact" target="_blank" rel="noopener"><div class="mark">YT</div>YouTube<span class="collab-link">Watch <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></span></a>
-          <a class="collab reveal" href="https://www.linkedin.com/company/unconventional-impact" target="_blank" rel="noopener"><div class="mark">LI</div>LinkedIn<span class="collab-link">Follow <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></span></a>
-          <a class="collab reveal" href="https://medium.com/unconventional-impact" target="_blank" rel="noopener"><div class="mark">M</div>Medium<span class="collab-link">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></span></a>
+          <a class="collab reveal" href="https://unconventionalimpact.github.io/unconventional-impact-website/" target="_blank" rel="noopener"><div class="mark">W</div><span data-i18n="init2.website">Website</span><span class="collab-link"><span data-i18n="action.visitSite">Visit site</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></span></a>
+          <a class="collab reveal" href="https://www.youtube.com/@unconventionalimpact" target="_blank" rel="noopener"><div class="mark">YT</div>YouTube<span class="collab-link"><span data-i18n="action.watch">Watch</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></span></a>
+          <a class="collab reveal" href="https://www.linkedin.com/company/unconventional-impact" target="_blank" rel="noopener"><div class="mark">LI</div>LinkedIn<span class="collab-link"><span data-i18n="action.follow">Follow</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></span></a>
+          <a class="collab reveal" href="https://medium.com/unconventional-impact" target="_blank" rel="noopener"><div class="mark">M</div>Medium<span class="collab-link"><span data-i18n="action.read">Read</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></span></a>
         </div>
       </div>
     </div>
@@ -846,29 +880,29 @@
   <section>
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">Achievements</p>
-        <h2>Recognition</h2>
+        <p class="eyebrow" data-i18n="ach.eyebrow">Achievements</p>
+        <h2 data-i18n="ach.h2">Recognition</h2>
       </div>
       <div class="ach-grid">
         <a class="ach reveal" href="https://events.esri.com/conference/sagList/?fa=List&awardyear=2020" target="_blank" rel="noopener">
           <div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6.2 4.6 2.4 7.4L12 16.8 5.8 21.4l2.4-7.4L2 9.4h7.6z"/></svg></div>
-          <div class="t">Esri Special Achievement Award, 2020</div>
+          <div class="t" data-i18n="ach1">Esri Special Achievement Award, 2020</div>
         </a>
         <a class="ach reveal" href="https://geospatialworld.net/rising-stars/2021/index.html" target="_blank" rel="noopener">
           <div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 17.3l-6.2 3.8 1.6-7-5.4-4.7 7.1-.6L12 2l2.9 6.8 7.1.6-5.4 4.7 1.6 7z"/></svg></div>
-          <div class="t">Geospatial World 50 Rising Stars, 2021</div>
+          <div class="t" data-i18n="ach2">Geospatial World 50 Rising Stars, 2021</div>
         </a>
         <a class="ach reveal" href="https://fallarmywormtech.challenges.org/winners/" target="_blank" rel="noopener">
           <div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-5.2-9.6-9.5C.7 7.7 2.5 4 6.2 4 8.3 4 10 5.1 12 7c2-1.9 3.7-3 5.8-3 3.7 0 5.5 3.7 3.8 7.5C19.5 15.8 12 21 12 21z"/></svg></div>
-          <div class="t">FAW Tech Prize: Frontier Innovation Award, 3rd place</div>
+          <div class="t" data-i18n="ach3">FAW Tech Prize: Frontier Innovation Award, 3rd place</div>
         </a>
         <a class="ach reveal" href="https://storymaps.arcgis.com/stories/01b86cbcfe3846e68dff6bd458845928" target="_blank" rel="noopener">
           <div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
-          <div class="t">Esri Women and GIS, Vol. 2 (featured)</div>
+          <div class="t" data-i18n="ach4">Esri Women and GIS, Vol. 2 (featured)</div>
         </a>
         <div class="ach reveal">
           <div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15a4 4 0 100-8 4 4 0 000 8z"/><path d="M8.5 13.5L5 21l2-1 1 2 2.5-5.5M15.5 13.5L19 21l-2-1-1 2-2.5-5.5"/></svg></div>
-          <div class="t">Microsoft patent, contextualized group data</div>
+          <div class="t" data-i18n="ach5">Microsoft patent, contextualized group data</div>
         </div>
       </div>
     </div>
@@ -877,7 +911,7 @@
   <section>
     <div class="wrap">
       <div class="quote reveal">
-        <p>"Product strategy brings the human perspective into Gen AI evaluation and development, helping teams design intelligent systems that are useful, responsible and built around real user needs."</p>
+        <p>"<span data-i18n="quote3">Product strategy brings the human perspective into Gen AI evaluation and development, helping teams design intelligent systems that are useful, responsible and built around real user needs.</span>"</p>
       </div>
     </div>
   </section>
@@ -885,15 +919,15 @@
   <section id="contact">
     <div class="wrap">
       <div class="contact reveal">
-        <h2>Let's chat</h2>
-        <p>Open to conversations on product strategy, AI agents and geospatial intelligence, and inclusive tech leadership.</p>
+        <h2 data-i18n="contact.h2">Let's chat</h2>
+        <p data-i18n="contact.p">Open to conversations on product strategy, AI agents and geospatial intelligence, and inclusive tech leadership.</p>
         <div class="contact-actions">
-          <a class="btn btn-primary" href="mailto:cyhana.williams@outlook.com">Email me</a>
-          <button class="btn btn-ghost" id="copyEmailBtn" type="button">Copy email</button>
-          <a class="btn btn-ghost" href="https://linktr.ee/cyhana" target="_blank" rel="noopener">All socials</a>
-          <a class="btn btn-ghost" href="files/Cyhana-Williams-CV.pdf" target="_blank" rel="noopener">Download CV</a>
+          <a class="btn btn-primary" href="mailto:cyhana.williams@outlook.com" data-i18n="contact.btnEmail">Email me</a>
+          <button class="btn btn-ghost" id="copyEmailBtn" type="button" data-i18n="contact.btnCopy">Copy email</button>
+          <a class="btn btn-ghost" href="https://linktr.ee/cyhana" target="_blank" rel="noopener" data-i18n="contact.btnSocials">All socials</a>
+          <a class="btn btn-ghost" href="files/Cyhana-Williams-CV.pdf" target="_blank" rel="noopener" data-i18n="hero.btnCV">Download CV</a>
         </div>
-        <span class="copy-toast" id="copyToast">Email copied to clipboard</span>
+        <span class="copy-toast" id="copyToast" data-i18n="contact.toast">Email copied to clipboard</span>
       </div>
     </div>
   </section>
@@ -904,10 +938,10 @@
   <div class="wrap">Cyhana Williams &copy; 2026</div>
 </footer>
 
-<button class="back-to-top" id="backToTop" aria-label="Back to top" type="button">&#8593;</button>
+<button class="back-to-top" id="backToTop" aria-label="Back to top" data-i18n-aria="aria.backtotop" type="button">&#8593;</button>
 
 <div class="lightbox" id="lightbox">
-  <button class="lightbox-close" id="lightboxClose" aria-label="Close image" type="button">&times;</button>
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close image" data-i18n-aria="aria.lightboxclose" type="button">&times;</button>
   <figure>
     <img id="lightboxImg" src="" alt="">
     <figcaption id="lightboxCaption"></figcaption>
@@ -936,6 +970,283 @@
     root.setAttribute('data-theme', next);
     try { localStorage.setItem('cw-theme', next); } catch(e){}
   });
+
+  var langToggle = document.getElementById('langToggle');
+  var langMenu = document.getElementById('langMenu');
+  var langOptions = Array.prototype.slice.call(document.querySelectorAll('.lang-option'));
+  function closeLangMenu(){
+    langMenu.classList.remove('open');
+    langToggle.setAttribute('aria-expanded', 'false');
+  }
+  langToggle.addEventListener('click', function(e){
+    e.stopPropagation();
+    var isOpen = langMenu.classList.toggle('open');
+    langToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  langOptions.forEach(function(opt){
+    opt.addEventListener('click', function(){
+      applyLanguage(opt.getAttribute('data-lang'));
+      closeLangMenu();
+    });
+  });
+  document.addEventListener('click', function(e){
+    if (!langMenu.contains(e.target) && e.target !== langToggle) closeLangMenu();
+  });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeLangMenu(); });
+
+  var translations = {
+    en: {
+      'nav.home':'Home','nav.about':'About','nav.tech':'Tech Portfolio','nav.gis':'GIS Portfolio','nav.initiatives':'Initiatives','nav.contact':"Let's chat",
+      'aria.theme':'Toggle light and dark theme','aria.navtoggle':'Toggle menu','aria.lang':'Change language','aria.backtotop':'Back to top','aria.lightboxclose':'Close image',
+      'doc.title':'Cyhana Williams: Career Portfolio','doc.desc':'Geo Insight. GenAI. Product Impact. Career portfolio of Cyhana Williams, Product Manager for AI agents, enterprise data and geospatial intelligence.',
+      'hero.who':'With Cyhana Williams','hero.h1':'Geo insight. GenAI. Product impact.',
+      'hero.lede':'Product Manager and strategist across AI agents, enterprise data and geospatial intelligence. I turn spatial and operational data into product strategy, from AI experiences used by millions of Microsoft 365 users to a distribution system that cut operating costs by about 50%.',
+      'hero.btnStory':'Read my story','hero.btnChat':"Let's chat",'hero.btnCV':'Download CV',
+      'hero.stat1':'Improvement to LLM output using human evaluations','hero.stat2':'Time reduction for research cycles using AI','hero.stat3':'FMCG operations cost reduction','hero.stat4':'FMCG locations mapped and digitized',
+      'quote1':'The future of intelligent products lies at the intersection of spatial insights, AI capabilities and human understanding, where geography shows patterns, AI surfaces possibilities and product strategy grounds those possibilities into evolving, user-centric experiences. Together, they turn complex data into sustainable strategic decisions.',
+      'quote2':'Some of the most powerful business insights appear when data is placed on a map, because location intelligence reveals the hidden relationships between customers, operations and opportunity.',
+      'quote3':'Product strategy brings the human perspective into Gen AI evaluation and development, helping teams design intelligent systems that are useful, responsible and built around real user needs.',
+      'skills.eyebrow':'Skills','skills.h2':'What I bring','skills.group1':'Product management & strategy','skills.group2':'AI & data platforms','skills.group3':'Geospatial & operational data',
+      'skills.pm1':'Product strategy','skills.pm2':'Roadmap prioritization','skills.pm3':'Requirements definition','skills.pm4':'Customer research & insights','skills.pm5':'Stakeholder & executive alignment','skills.pm6':'Go-to-market planning','skills.pm7':'Agile product development','skills.pm8':'Program management',
+      'skills.ai1':'AI agents','skills.ai2':'Agentic AI UX research','skills.ai3':'Human-in-the-loop LLM evaluation','skills.ai4':'GenAI UX (GenUX) evaluation','skills.ai5':'Knowledge graphs (Microsoft Graph)','skills.ai6':'Prompt & context engineering','skills.ai7':'Computer use agent UX research',
+      'skills.geo1':'Geospatial program management & product development','skills.geo2':'Remote sensing & satellite imagery','skills.geo3':'Spatio-temporal analysis','skills.geo4':'Route optimization & territory mapping','skills.geo5':'Location intelligence strategy','skills.geo6':'AI & geospatial solutions',
+      'about.eyebrow':'About','about.h2':"Cyhana's bio",'about.socials':'Socials',
+      'tl0.title':'AI UX Researcher II','tl0.org':'Microsoft, current','tl0.detail':'Shape product direction for AI agents including the Researcher agent in Microsoft 365 Copilot, People Agent and Org Explorer. Co-created a human evaluation governance framework that improved AI output quality by 50% and was adopted as the standard across multiple research teams.',
+      'tl1.title':'Founder & Host','tl1.org':'Unconventional Impact, since 2026','tl1.detail':'Built and launched a multi-channel media platform from zero, owning positioning, content strategy and go-to-market across LinkedIn, YouTube and Medium, and proposed the GeoAI Context Intelligence framework.',
+      'tl2.title':'Co-Founder','tl2.org':'African Women in GIS, ongoing','tl2.detail':'Grew a 1,000+ member, 30+ country network averaging about 10% growth per quarter, leading a 15+ person admin and volunteer team.',
+      'tl3.title':'GIS Mapping Specialist','tl3.detail':'Designed and delivered an optimized route-to-market system across 80,000+ customer locations in Ghana, from requirements through rollout, cutting operational costs by about 50%.',
+      'tl4.title':'Product Manager, GeoAI Solutions','tl4.detail':'Owned product delivery for IGEZA (now MyAgro360), coordinating software, data and farmer research teams, and led go-to-market planning that won the Frontier Innovation Award.',
+      'about.p1':'Cyhana Williams is a product manager and strategist with 8+ years across enterprise AI, data platforms and geospatial intelligence. She turns complex operational and spatial data into product strategy and business decisions, from AI agents used by millions of Microsoft 365 users to a distribution system that cut operating costs by about 50%.',
+      'about.p2':'At Microsoft, she has shaped product direction for AI agents including the Researcher agent in Microsoft 365 Copilot, People Agent and Org Explorer, running 40+ customer studies and co-creating a human evaluation governance framework that improved AI output quality by 50% and was adopted as the standard across multiple research teams.',
+      'about.p3':'Her geospatial analysis in the Route-to-Market project at Coca-Cola Beverages Africa, Voltic Ghana, took distribution strategy from requirements through rollout, optimizing 80,000+ customer locations and reducing operational costs by about 50% while preventing distributor territory disputes.',
+      'about.p4':'At Henson Geodata Technologies, she was Product Manager for GeoAI Solutions, owning delivery of IGEZA (now MyAgro360), an AI-powered pest and disease management product, and leading go-to-market planning that won the Frontier Innovation Award at the Fall Armyworm Tech Prize.',
+      'about.p5':'Beyond her core product work, Cyhana co-founded African Women in GIS, a 1,000+ member community across 30+ countries, and founded Unconventional Impact, a media platform built around her original GeoAI Context Intelligence framework for combining geospatial and AI thinking in unconventional fields.',
+      'about.p6':'Together, her work advances product strategy for AI and geospatial solutions, and advocates for inclusion in the global tech and geospatial community. She believes that diverse voices shape the future of technology.',
+      'about.tip':'Tip: click a step in the timeline to the left to see the highlight from each chapter.',
+      'tech.eyebrow':'Tech Portfolio','tech.h2':'Tech product management portfolio','tech.p':'Product strategy and GenAI evaluation leadership for AI agents at Microsoft, plus GeoAI product management in agri-tech.',
+      'tech.hl1':'Co-created an AI output evaluation governance process','tech.hl2':'Microsoft patent for generating contextualized group data','tech.hl3':'Ran 40+ customer studies across Org Explorer and People Agent','tech.hl4':'Led go-to-market and won the Frontier Innovation Award for IGEZA, from 288 applicants',
+      'tech.tab1':'Researcher agent, M365 Copilot','tech.tab2':'Prompt evaluations','tech.tab3':'People Agent','tech.tab4':'Org Explorer','tech.tab5':'IGEZA',
+      'tech.t1.h3':'Researcher agent, Microsoft 365 Copilot','tech.t1.org':'Microsoft, AI UX Researcher II',
+      'tech.t1.p1':'I led Generative UI/UX (GenUX) research and owned human evaluation of AI-generated visual output quality for the Researcher agent, a deep research agent available to Microsoft 365 enterprise customers, turning quality findings into prioritized product improvements.',
+      'tech.t1.p2':"Across my time on Microsoft's Researcher team, I've built customer-centered evaluation rubrics and assessment frameworks for AI-generated visual and data-rich experiences, giving data science and engineering teams standardized quality metrics that guide model optimization, while strengthening my program management, product strategy and AI governance capabilities.",
+      'tech.t2.h3':'People prompt output evaluations','tech.t2.org':'Microsoft, People Agent team',
+      'tech.t2.p1':'As co-Lead UX Researcher, I co-created a user-centric prompt evaluation governance framework with a Content Designer to improve the quality, consistency and trustworthiness of AI responses to people-related queries. Establishing structured evaluation processes, success metrics and feedback loops drove a 50% improvement in AI response quality, while enabling scalable human-in-the-loop assessment across teams.',
+      'tech.t2.chartTitle':'AI response quality score, before vs. after','tech.t2.barValBefore':'Baseline','tech.t2.chartCaption':'With the new evaluation governance framework, response quality scored 50% higher than the baseline.',
+      'tech.t3.h3':'People Agent','tech.t3.org':'Microsoft, People Agent product team',
+      'tech.t3.p1':"From October 2024 to January 2026, I led UX research for People Agent, an AI agent built on Microsoft Graph that shows employees how they're connected to colleagues and the work they share, translating customer needs into design and launch decisions on how people insights are surfaced.",
+      'tech.t4.h3':'Org Explorer','tech.t4.org':'Microsoft, Lead UX Researcher',
+      'tech.t4.p1':'From September 2020 to July 2024, I informed product priorities and launch decisions for Org Explorer, a product that lets employees explore their organization\'s structure and teams, now serving all Microsoft 365 users. I ran 40+ customer studies across Org Explorer and People Agent, translating complex user and business needs into actionable roadmaps that guided a successful, scalable launch.',
+      'tech.t5.p1':'As Product Manager for GeoAI Solutions, I owned product delivery and go-to-market for an AI-powered platform that enabled smallholder farmers to detect, report and respond to Fall Armyworm outbreaks.',
+      'gis.igeza.h3':'IGEZA: Pest & Disease Control System','gis.igeza.org':'Henson Geodata Technologies, Product Manager, GeoAI Solutions',
+      'funnel.globalApplicants':'Global applicants','funnel.finalists':'Finalists, USAID Feed the Future','funnel.frontierAward':'Frontier Innovation Award, 3rd place','funnel.topPrefix':'Top ',
+      'chart.before':'Before','chart.after':'After',
+      'gis.eyebrow':'GIS Portfolio','gis.h2':'GIS product manager portfolio','gis.p':'Product strategy, geospatial program management and GeoAI product development across retail distribution and agri-tech.',
+      'gis.tab1':'Route-to-market project','gis.tab2':'IGEZA: pest & disease control',
+      'gis.t1.p1':'As GIS Mapping Specialist for Route-to-Market Strategy at Coca-Cola Beverages Africa subsidiary Voltic Ghana, I designed and delivered an optimized route-to-market system, from requirements and stakeholder alignment through rollout to distributors.',
+      'gis.t1.p2':'By analyzing over 80,000 customer locations, I developed a route-to-market solution that reduced operational costs by 50%, improved delivery efficiency, established data-driven sales territories and prevented distributor territory disputes. This work contributed to the company receiving the 2020 Esri Special Achievement in GIS Award.',
+      'gis.t1.chartTitle':'Operational cost, before vs. after','gis.t1.chartCaption':'Route-to-Market redesign, across 80,000+ analyzed locations.',
+      'gis.t1.badge1':'Best Sales and Marketing Team (Voltic Ghana, CCBA)','gis.t1.badge2':'Esri Special Achievement in GIS Award (Voltic Ghana Limited)',
+      'gis.t1.thumb1':'Coca-Cola Beverages Africa, Route-to-Market project','gis.t1.thumb2':'Best Sales and Marketing Team award, Voltic Ghana','gis.t1.thumb3':'Route-to-market territory mapping','gis.t1.thumb4':'Route-to-market project team, Voltic Ghana',
+      'gis.t2.p1':'As Product Manager for GeoAI Solutions at Henson Geodata Technologies, I owned delivery of IGEZA (now MyAgro360), coordinating software, data and farmer research teams to deliver an AI-powered pest and disease management product that helps farmers detect crop threats, find recommended pesticides and alert agricultural extension officers.',
+      'gis.t2.p2':'I led go-to-market planning and represented the product in client meetings and competitions, including pitching IGEZA at the Fall Armyworm Tech Prize in Kampala as one of 20 finalists from 288 applicants.',
+      'gis.t2.p3':'The team won the Frontier Innovation Award (3rd place), recognized by USAID, Feed the Future and FFRAR for its potential to improve food security and protect smallholder farmers across Africa.',
+      'gis.t2.badge1':'Frontier Innovation Award, 3rd place ($50,000)','gis.t2.badge2':'100,000+ digitized points of interest, Liberia',
+      'init.eyebrow':'Initiatives','init.h2':'African Women in GIS','init.p':'AWiGIS is a 1,000+ pan-African network advancing the participation and leadership of women in GIS, geospatial sciences, remote sensing and related technologies.','init.infoBtn':'AWiGIS info & links',
+      'init.stat1':'Global members','init.stat2':'Countries worldwide','init.stat3':'Career impacting training events','init.stat4':'Mentorship cohorts',
+      'init.netCaption':'AWiGIS: one pan-African hub, members pulsing in across 30+ countries',
+      'init.p1':'Through mentorship, capacity building, knowledge sharing and professional networking, AWiGIS empowers women across Africa to develop technical expertise and build impactful careers in the geospatial sector. With members spanning 30+ diverse countries and backgrounds, the organization fosters a collaborative community that supports learning, innovation and leadership.',
+      'init.p2':'By connecting emerging professionals with experienced practitioners and industry partners, AWiGIS is helping shape a more inclusive geospatial ecosystem and inspiring the next generation of African women leaders in STEM.',
+      'init.thumbCaption':'African Women in GIS, connecting a pan-African network','init.collabHeading':'Top collaborators',
+      'action.visitSite':'Visit site','action.profile':'Profile','action.watch':'Watch','action.follow':'Follow','action.read':'Read',
+      'init2.h2':'Unconventional Impact','init2.p':'A media platform spotlighting the people, ideas and organizations that innovate outside the lines, built around the original GeoAI Context Intelligence framework.','init2.infoBtn':'Unconventional Impact info & links',
+      'init2.hl1':'Insightful interviews, live on YouTube','init2.hl2':'Impactful articles, published on Medium','init2.hl3':'Sharp takes shared on LinkedIn','init2.hl4':'Original playbooks, starting with GeoAI Context Intelligence',
+      'init2.website':'Website',
+      'ach.eyebrow':'Achievements','ach.h2':'Recognition',
+      'ach1':'Esri Special Achievement Award, 2020','ach2':'Geospatial World 50 Rising Stars, 2021','ach3':'FAW Tech Prize: Frontier Innovation Award, 3rd place','ach4':'Esri Women and GIS, Vol. 2 (featured)','ach5':'Microsoft patent, contextualized group data',
+      'contact.h2':"Let's chat",'contact.p':'Open to conversations on product strategy, AI agents and geospatial intelligence, and inclusive tech leadership.',
+      'contact.btnEmail':'Email me','contact.btnCopy':'Copy email','contact.btnSocials':'All socials','contact.toast':'Email copied to clipboard'
+    },
+    no: {
+      'nav.home':'Hjem','nav.about':'Om meg','nav.tech':'Teknologiportefølje','nav.gis':'GIS-portefølje','nav.initiatives':'Initiativer','nav.contact':'La oss prate',
+      'aria.theme':'Bytt mellom lyst og mørkt tema','aria.navtoggle':'Vis/skjul meny','aria.lang':'Bytt språk','aria.backtotop':'Til toppen','aria.lightboxclose':'Lukk bilde',
+      'doc.title':'Cyhana Williams: Karriereportefølje','doc.desc':'Geoinnsikt. GenAI. Produktpåvirkning. Karriereportefølje for Cyhana Williams, produktsjef for KI-agenter, virksomhetsdata og geospatial intelligens.',
+      'hero.who':'Med Cyhana Williams','hero.h1':'Geoinnsikt. GenAI. Produktpåvirkning.',
+      'hero.lede':'Produktsjef og strateg innen KI-agenter, virksomhetsdata og geospatial intelligens. Jeg omsetter romlige og operasjonelle data til produktstrategi, fra KI-opplevelser brukt av millioner av Microsoft 365-brukere til et distribusjonssystem som kuttet driftskostnadene med rundt 50 %.',
+      'hero.btnStory':'Les historien min','hero.btnChat':'La oss prate','hero.btnCV':'Last ned CV',
+      'hero.stat1':'Forbedring av språkmodellresultater gjennom menneskelige evalueringer','hero.stat2':'Redusert tid på forskningssykluser ved bruk av KI','hero.stat3':'Kostnadsreduksjon i FMCG-driften','hero.stat4':'FMCG-lokasjoner kartlagt og digitalisert',
+      'quote1':'Fremtiden for intelligente produkter ligger i skjæringspunktet mellom romlig innsikt, KI-kapabiliteter og menneskelig forståelse, der geografi viser mønstre, KI avdekker muligheter og produktstrategi forankrer disse mulighetene i utviklende, brukersentrerte opplevelser. Sammen omdanner de komplekse data til bærekraftige strategiske beslutninger.',
+      'quote2':'Noen av de mest kraftfulle forretningsinnsiktene oppstår når data plasseres på et kart, fordi stedsintelligens avdekker de skjulte sammenhengene mellom kunder, drift og muligheter.',
+      'quote3':'Produktstrategi bringer det menneskelige perspektivet inn i evaluering og utvikling av generativ KI, og hjelper team med å designe intelligente systemer som er nyttige, ansvarlige og bygget rundt reelle brukerbehov.',
+      'skills.eyebrow':'Kompetanse','skills.h2':'Det jeg bidrar med','skills.group1':'Produktledelse og strategi','skills.group2':'KI og dataplattformer','skills.group3':'Geospatial og operasjonell data',
+      'skills.pm1':'Produktstrategi','skills.pm2':'Prioritering av veikart','skills.pm3':'Kravdefinering','skills.pm4':'Kundeforskning og innsikt','skills.pm5':'Interessent- og ledelsesforankring','skills.pm6':'Go-to-market-planlegging','skills.pm7':'Smidig produktutvikling','skills.pm8':'Programledelse',
+      'skills.ai1':'KI-agenter','skills.ai2':'UX-forskning på agentbasert KI','skills.ai3':'Menneskestyrt evaluering av språkmodeller','skills.ai4':'Evaluering av generativ KI-UX (GenUX)','skills.ai5':'Kunnskapsgrafer (Microsoft Graph)','skills.ai6':'Prompt- og konteksingeniørarbeid','skills.ai7':'UX-forskning på dataverktøy-agenter',
+      'skills.geo1':'Geospatial programledelse og produktutvikling','skills.geo2':'Fjernmåling og satellittbilder','skills.geo3':'Spatiotemporal analyse','skills.geo4':'Ruteoptimalisering og territoriekartlegging','skills.geo5':'Strategi for stedsintelligens','skills.geo6':'KI- og geospatiale løsninger',
+      'about.eyebrow':'Om meg','about.h2':'Om Cyhana','about.socials':'Sosiale medier',
+      'tl0.title':'KI-UX-forsker II','tl0.org':'Microsoft, nåværende','tl0.detail':'Former produktretningen for KI-agenter, inkludert Researcher-agenten i Microsoft 365 Copilot, People Agent og Org Explorer. Var med på å utvikle et rammeverk for menneskelig evaluering som forbedret kvaliteten på KI-resultater med 50 % og ble innført som standard på tvers av flere forskningsteam.',
+      'tl1.title':'Grunnlegger og programleder','tl1.org':'Unconventional Impact, siden 2026','tl1.detail':'Bygde og lanserte en flerkanals medieplattform fra bunnen av, med ansvar for posisjonering, innholdsstrategi og lansering på tvers av LinkedIn, YouTube og Medium, og lanserte rammeverket GeoAI Context Intelligence.',
+      'tl2.title':'Medgrunnlegger','tl2.org':'African Women in GIS, pågående','tl2.detail':'Bygde et nettverk med over 1000 medlemmer i over 30 land, med en gjennomsnittlig vekst på rundt 10 % per kvartal, og ledet et admin- og frivillighetsteam på over 15 personer.',
+      'tl3.title':'GIS-kartleggingsspesialist','tl3.detail':'Designet og leverte et optimalisert route-to-market-system for over 80 000 kundelokasjoner i Ghana, fra kravspesifikasjon til utrulling, og kuttet driftskostnadene med rundt 50 %.',
+      'tl4.title':'Produktsjef, GeoAI-løsninger','tl4.detail':'Hadde ansvar for produktleveransen av IGEZA (nå MyAgro360), koordinerte team for programvare, data og bondeforskning, og ledet go-to-market-planleggingen som vant Frontier Innovation Award.',
+      'about.p1':'Cyhana Williams er produktsjef og strateg med over 8 års erfaring innen bedrifts-KI, dataplattformer og geospatial intelligens. Hun omsetter komplekse operasjonelle og romlige data til produktstrategi og forretningsbeslutninger, fra KI-agenter brukt av millioner av Microsoft 365-brukere til et distribusjonssystem som kuttet driftskostnadene med rundt 50 %.',
+      'about.p2':'Hos Microsoft har hun formet produktretningen for KI-agenter, inkludert Researcher-agenten i Microsoft 365 Copilot, People Agent og Org Explorer, gjennomført over 40 kundestudier og vært med på å utvikle et rammeverk for menneskelig evaluering som forbedret kvaliteten på KI-resultater med 50 % og ble innført som standard på tvers av flere forskningsteam.',
+      'about.p3':'Hennes geospatiale analyse i Route-to-Market-prosjektet hos Coca-Cola Beverages Africa, Voltic Ghana, tok distribusjonsstrategien fra kravspesifikasjon til utrulling, optimaliserte over 80 000 kundelokasjoner og reduserte driftskostnadene med rundt 50 % samtidig som territoriekonflikter mellom distributører ble forhindret.',
+      'about.p4':'Hos Henson Geodata Technologies var hun produktsjef for GeoAI-løsninger, med ansvar for leveransen av IGEZA (nå MyAgro360), et KI-drevet produkt for skadedyr- og sykdomshåndtering, og ledet go-to-market-planleggingen som vant Frontier Innovation Award i Fall Armyworm Tech Prize.',
+      'about.p5':'Utover sitt kjerneproduktarbeid var Cyhana med på å grunnlegge African Women in GIS, et fellesskap med over 1000 medlemmer i over 30 land, og grunnla Unconventional Impact, en medieplattform bygget rundt hennes eget rammeverk GeoAI Context Intelligence for å kombinere geospatial og KI-tenkning innen utradisjonelle felt.',
+      'about.p6':'Samlet sett fremmer arbeidet hennes produktstrategi for KI- og geospatiale løsninger, og hun taler for inkludering i det globale tech- og geospatial-miljøet. Hun tror at mangfoldige stemmer former fremtidens teknologi.',
+      'about.tip':'Tips: klikk på et trinn i tidslinjen til venstre for å se høydepunktet fra hvert kapittel.',
+      'tech.eyebrow':'Teknologiportefølje','tech.h2':'Portefølje for teknologisk produktledelse','tech.p':'Produktstrategi og ledelse av GenAI-evaluering for KI-agenter hos Microsoft, i tillegg til GeoAI-produktledelse innen agri-tech.',
+      'tech.hl1':'Var med på å utvikle en styringsprosess for evaluering av KI-resultater','tech.hl2':'Microsoft-patent for generering av kontekstualiserte gruppedata','tech.hl3':'Gjennomførte over 40 kundestudier på tvers av Org Explorer og People Agent','tech.hl4':'Ledet go-to-market og vant Frontier Innovation Award for IGEZA, blant 288 søkere',
+      'tech.tab1':'Researcher-agent, M365 Copilot','tech.tab2':'Prompt-evalueringer','tech.tab3':'People Agent','tech.tab4':'Org Explorer','tech.tab5':'IGEZA',
+      'tech.t1.h3':'Researcher-agent, Microsoft 365 Copilot','tech.t1.org':'Microsoft, KI-UX-forsker II',
+      'tech.t1.p1':'Jeg ledet forskning på generativ UI/UX (GenUX) og hadde ansvar for menneskelig evaluering av kvaliteten på KI-generert visuelt resultat for Researcher-agenten, en dyp forskningsagent tilgjengelig for Microsoft 365-bedriftskunder, og omsatte kvalitetsfunn til prioriterte produktforbedringer.',
+      'tech.t1.p2':'Gjennom min tid på Microsofts Researcher-team har jeg bygget kundesentrerte evalueringskriterier og vurderingsrammeverk for KI-genererte visuelle og datarike opplevelser, og gitt data science- og ingeniørteam standardiserte kvalitetsmål som styrer modelloptimalisering, samtidig som jeg har styrket min kompetanse innen programledelse, produktstrategi og KI-styring.',
+      'tech.t2.h3':'Evaluering av prompt-resultater for People','tech.t2.org':'Microsoft, People Agent-teamet',
+      'tech.t2.p1':'Som medledende UX-forsker var jeg med på å utvikle et brukersentrert styringsrammeverk for prompt-evaluering sammen med en Content Designer, for å forbedre kvalitet, konsistens og troverdighet i KI-svar på personrelaterte spørsmål. Etablering av strukturerte evalueringsprosesser, suksessmål og tilbakemeldingssløyfer ga en forbedring på 50 % i KI-svarkvalitet, samtidig som det muliggjorde skalerbar menneskestyrt vurdering på tvers av team.',
+      'tech.t2.chartTitle':'KI-svarkvalitet, før og etter','tech.t2.barValBefore':'Utgangspunkt','tech.t2.chartCaption':'Med det nye styringsrammeverket for evaluering scoret svarkvaliteten 50 % høyere enn utgangspunktet.',
+      'tech.t3.h3':'People Agent','tech.t3.org':'Microsoft, People Agent-produktteamet',
+      'tech.t3.p1':'Fra oktober 2024 til januar 2026 ledet jeg UX-forskningen for People Agent, en KI-agent bygget på Microsoft Graph som viser ansatte hvordan de er koblet til kolleger og det arbeidet de deler, og omsatte kundebehov til design- og lanseringsbeslutninger om hvordan persondata blir vist.',
+      'tech.t4.h3':'Org Explorer','tech.t4.org':'Microsoft, ledende UX-forsker',
+      'tech.t4.p1':'Fra september 2020 til juli 2024 ga jeg innspill til produktprioriteringer og lanseringsbeslutninger for Org Explorer, et produkt som lar ansatte utforske organisasjonens struktur og team, og som nå brukes av alle Microsoft 365-brukere. Jeg gjennomførte over 40 kundestudier på tvers av Org Explorer og People Agent, og omsatte komplekse bruker- og forretningsbehov til handlingsrettede veikart som ledet til en vellykket, skalerbar lansering.',
+      'tech.t5.p1':'Som produktsjef for GeoAI-løsninger hadde jeg ansvar for produktleveranse og go-to-market for en KI-drevet plattform som gjorde det mulig for småbrukere å oppdage, rapportere og respondere på utbrudd av høstarméorm.',
+      'gis.igeza.h3':'IGEZA: system for skadedyr- og sykdomskontroll','gis.igeza.org':'Henson Geodata Technologies, produktsjef, GeoAI-løsninger',
+      'funnel.globalApplicants':'Globale søkere','funnel.finalists':'Finalister, USAID Feed the Future','funnel.frontierAward':'Frontier Innovation Award, 3. plass','funnel.topPrefix':'Topp ',
+      'chart.before':'Før','chart.after':'Etter',
+      'gis.eyebrow':'GIS-portefølje','gis.h2':'Portefølje for GIS-produktledelse','gis.p':'Produktstrategi, geospatial programledelse og GeoAI-produktutvikling innen detaljhandelsdistribusjon og agri-tech.',
+      'gis.tab1':'Route-to-market-prosjekt','gis.tab2':'IGEZA: skadedyr- og sykdomskontroll',
+      'gis.t1.p1':'Som GIS-kartleggingsspesialist for route-to-market-strategi hos Coca-Cola Beverages Africas datterselskap Voltic Ghana, designet og leverte jeg et optimalisert route-to-market-system, fra kravspesifikasjon og interessentforankring til utrulling hos distributører.',
+      'gis.t1.p2':'Ved å analysere over 80 000 kundelokasjoner utviklet jeg en route-to-market-løsning som reduserte driftskostnadene med 50 %, forbedret leveringseffektiviteten, etablerte datadrevne salgsterritorier og forhindret territoriekonflikter mellom distributører. Dette arbeidet bidro til at selskapet mottok Esri Special Achievement in GIS Award i 2020.',
+      'gis.t1.chartTitle':'Driftskostnad, før og etter','gis.t1.chartCaption':'Redesign av route-to-market, på tvers av over 80 000 analyserte lokasjoner.',
+      'gis.t1.badge1':'Beste salgs- og markedsføringsteam (Voltic Ghana, CCBA)','gis.t1.badge2':'Esri Special Achievement in GIS Award (Voltic Ghana Limited)',
+      'gis.t1.thumb1':'Coca-Cola Beverages Africa, Route-to-Market-prosjektet','gis.t1.thumb2':'Pris for beste salgs- og markedsføringsteam, Voltic Ghana','gis.t1.thumb3':'Territoriekartlegging for route-to-market','gis.t1.thumb4':'Route-to-market-prosjektteamet, Voltic Ghana',
+      'gis.t2.p1':'Som produktsjef for GeoAI-løsninger hos Henson Geodata Technologies hadde jeg ansvar for leveransen av IGEZA (nå MyAgro360), koordinerte team for programvare, data og bondeforskning, og leverte et KI-drevet produkt for skadedyr- og sykdomshåndtering som hjelper bønder med å oppdage trusler mot avlingen, finne anbefalte plantevernmidler og varsle landbruksrådgivere.',
+      'gis.t2.p2':'Jeg ledet go-to-market-planleggingen og representerte produktet i kundemøter og konkurranser, blant annet ved å pitche IGEZA i Fall Armyworm Tech Prize i Kampala som en av 20 finalister blant 288 søkere.',
+      'gis.t2.p3':'Teamet vant Frontier Innovation Award (3. plass), anerkjent av USAID, Feed the Future og FFRAR for potensialet til å forbedre matsikkerheten og beskytte småbrukere over hele Afrika.',
+      'gis.t2.badge1':'Frontier Innovation Award, 3. plass ($50 000)','gis.t2.badge2':'Over 100 000 digitaliserte interessepunkter, Liberia',
+      'init.eyebrow':'Initiativer','init.h2':'African Women in GIS','init.p':'AWiGIS er et pan-afrikansk nettverk med over 1000 medlemmer som fremmer deltakelse og lederskap for kvinner innen GIS, geospatiale fag, fjernmåling og relaterte teknologier.','init.infoBtn':'AWiGIS – info og lenker',
+      'init.stat1':'Medlemmer globalt','init.stat2':'Land på verdensbasis','init.stat3':'Karrierefremmende opplæringsarrangementer','init.stat4':'Mentorkull',
+      'init.netCaption':'AWiGIS: ett pan-afrikansk knutepunkt, med medlemmer spredt over 30+ land',
+      'init.p1':'Gjennom mentorordninger, kapasitetsbygging, kunnskapsdeling og faglig nettverksbygging gir AWiGIS kvinner over hele Afrika mulighet til å utvikle teknisk ekspertise og bygge meningsfulle karrierer innen geospatial sektor. Med medlemmer fra over 30 ulike land og bakgrunner fremmer organisasjonen et samarbeidende fellesskap som støtter læring, innovasjon og lederskap.',
+      'init.p2':'Ved å koble nye fagpersoner med erfarne praktikere og industripartnere bidrar AWiGIS til å forme et mer inkluderende geospatialt økosystem og inspirerer den neste generasjonen afrikanske kvinnelige ledere innen realfag.',
+      'init.thumbCaption':'African Women in GIS, et pan-afrikansk nettverk','init.collabHeading':'Viktigste samarbeidspartnere',
+      'action.visitSite':'Besøk nettsiden','action.profile':'Profil','action.watch':'Se video','action.follow':'Følg','action.read':'Les',
+      'init2.h2':'Unconventional Impact','init2.p':'En medieplattform som løfter frem mennesker, ideer og organisasjoner som innoverer utenfor de vanlige rammene, bygget rundt det originale rammeverket GeoAI Context Intelligence.','init2.infoBtn':'Unconventional Impact – info og lenker',
+      'init2.hl1':'Innsiktsfulle intervjuer, direkte på YouTube','init2.hl2':'Virkningsfulle artikler, publisert på Medium','init2.hl3':'Skarpe synspunkter delt på LinkedIn','init2.hl4':'Originale strategiguider, med GeoAI Context Intelligence som den første',
+      'init2.website':'Nettside',
+      'ach.eyebrow':'Utmerkelser','ach.h2':'Anerkjennelse',
+      'ach1':'Esri Special Achievement Award, 2020','ach2':'Geospatial World 50 Rising Stars, 2021','ach3':'FAW Tech Prize: Frontier Innovation Award, 3. plass','ach4':'Esri Women and GIS, Vol. 2 (omtalt)','ach5':'Microsoft-patent, kontekstualiserte gruppedata',
+      'contact.h2':'La oss prate','contact.p':'Åpen for samtaler om produktstrategi, KI-agenter og geospatial intelligens, samt inkluderende teknologiledelse.',
+      'contact.btnEmail':'Send meg en e-post','contact.btnCopy':'Kopier e-post','contact.btnSocials':'Alle sosiale medier','contact.toast':'E-post kopiert til utklippstavlen'
+    },
+    fr: {
+      'nav.home':'Accueil','nav.about':'À propos','nav.tech':'Portefeuille technique','nav.gis':'Portefeuille SIG','nav.initiatives':'Initiatives','nav.contact':'Discutons',
+      'aria.theme':'Changer entre thème clair et sombre','aria.navtoggle':'Afficher/masquer le menu','aria.lang':'Changer de langue','aria.backtotop':'Retour en haut','aria.lightboxclose':"Fermer l'image",
+      'doc.title':'Cyhana Williams : Portfolio de carrière','doc.desc':"Analyse géo. IA générative. Impact produit. Portfolio de carrière de Cyhana Williams, cheffe de produit pour les agents d'IA, les données d'entreprise et l'intelligence géospatiale.",
+      'hero.who':'Avec Cyhana Williams','hero.h1':'Analyse géo. IA générative. Impact produit.',
+      'hero.lede':"Cheffe de produit et stratège en agents d'IA, données d'entreprise et intelligence géospatiale. Je transforme les données spatiales et opérationnelles en stratégie produit, des expériences d'IA utilisées par des millions d'utilisateurs de Microsoft 365 à un système de distribution qui a réduit les coûts d'exploitation d'environ 50 %.",
+      'hero.btnStory':'Lire mon parcours','hero.btnChat':'Discutons','hero.btnCV':'Télécharger le CV',
+      'hero.stat1':"Amélioration des résultats des modèles de langage grâce à des évaluations humaines",'hero.stat2':"Réduction du temps des cycles de recherche grâce à l'IA",'hero.stat3':'Réduction des coûts opérationnels FMCG','hero.stat4':'Sites FMCG cartographiés et numérisés',
+      'quote1':"L'avenir des produits intelligents se situe à l'intersection des analyses spatiales, des capacités de l'IA et de la compréhension humaine, où la géographie révèle des schémas, l'IA fait émerger des possibilités, et la stratégie produit ancre ces possibilités dans des expériences évolutives centrées sur l'utilisateur. Ensemble, elles transforment des données complexes en décisions stratégiques durables.",
+      'quote2':"Certaines des analyses commerciales les plus puissantes apparaissent lorsque les données sont placées sur une carte, car l'intelligence de localisation révèle les relations cachées entre clients, opérations et opportunités.",
+      'quote3':"La stratégie produit apporte la perspective humaine à l'évaluation et au développement de l'IA générative, aidant les équipes à concevoir des systèmes intelligents utiles, responsables et construits autour des besoins réels des utilisateurs.",
+      'skills.eyebrow':'Compétences','skills.h2':"Ce que j'apporte",'skills.group1':'Gestion et stratégie produit','skills.group2':'IA et plateformes de données','skills.group3':'Données géospatiales et opérationnelles',
+      'skills.pm1':'Stratégie produit','skills.pm2':'Priorisation de la feuille de route','skills.pm3':'Définition des exigences','skills.pm4':'Recherche et analyse clients','skills.pm5':'Alignement avec les parties prenantes et la direction','skills.pm6':'Planification de la mise sur le marché','skills.pm7':'Développement produit agile','skills.pm8':'Gestion de programme',
+      'skills.ai1':"Agents d'IA",'skills.ai2':"Recherche UX sur l'IA agentique",'skills.ai3':'Évaluation des LLM avec supervision humaine','skills.ai4':"Évaluation UX de l'IA générative (GenUX)",'skills.ai5':'Graphes de connaissances (Microsoft Graph)','skills.ai6':'Ingénierie des prompts et du contexte','skills.ai7':"Recherche UX sur les agents d'utilisation d'ordinateur",
+      'skills.geo1':'Gestion de programme géospatial et développement produit','skills.geo2':'Télédétection et imagerie satellite','skills.geo3':'Analyse spatio-temporelle','skills.geo4':'Optimisation des itinéraires et cartographie des territoires','skills.geo5':'Stratégie d\'intelligence de localisation','skills.geo6':'Solutions IA et géospatiales',
+      'about.eyebrow':'À propos','about.h2':'Biographie de Cyhana','about.socials':'Réseaux sociaux',
+      'tl0.title':'Chercheuse UX IA II','tl0.org':'Microsoft, poste actuel','tl0.detail':"Oriente la stratégie produit des agents d'IA, dont l'agent Researcher de Microsoft 365 Copilot, People Agent et Org Explorer. Co-créatrice d'un cadre de gouvernance d'évaluation humaine qui a amélioré la qualité des résultats de l'IA de 50 % et a été adopté comme norme dans plusieurs équipes de recherche.",
+      'tl1.title':'Fondatrice et animatrice','tl1.org':'Unconventional Impact, depuis 2026','tl1.detail':"A construit et lancé une plateforme média multicanale à partir de zéro, en assurant le positionnement, la stratégie de contenu et la mise sur le marché sur LinkedIn, YouTube et Medium, et a proposé le cadre GeoAI Context Intelligence.",
+      'tl2.title':'Cofondatrice','tl2.org':'African Women in GIS, en cours','tl2.detail':"A développé un réseau de plus de 1 000 membres dans plus de 30 pays, avec une croissance moyenne d'environ 10 % par trimestre, en dirigeant une équipe administrative et bénévole de plus de 15 personnes.",
+      'tl3.title':'Spécialiste en cartographie SIG','tl3.detail':"A conçu et livré un système de distribution (route-to-market) optimisé couvrant plus de 80 000 sites clients au Ghana, des exigences au déploiement, réduisant les coûts opérationnels d'environ 50 %.",
+      'tl4.title':'Cheffe de produit, solutions GeoAI','tl4.detail':"Responsable de la livraison produit d'IGEZA (aujourd'hui MyAgro360), coordonnant les équipes logiciel, données et recherche auprès des agriculteurs, et a dirigé la planification de mise sur le marché qui a remporté le Frontier Innovation Award.",
+      'about.p1':"Cyhana Williams est cheffe de produit et stratège avec plus de 8 ans d'expérience en IA d'entreprise, plateformes de données et intelligence géospatiale. Elle transforme des données opérationnelles et spatiales complexes en stratégie produit et décisions commerciales, des agents d'IA utilisés par des millions d'utilisateurs de Microsoft 365 à un système de distribution qui a réduit les coûts d'exploitation d'environ 50 %.",
+      'about.p2':"Chez Microsoft, elle a orienté la stratégie produit des agents d'IA, dont l'agent Researcher de Microsoft 365 Copilot, People Agent et Org Explorer, en menant plus de 40 études clients et en co-créant un cadre de gouvernance d'évaluation humaine qui a amélioré la qualité des résultats de l'IA de 50 % et a été adopté comme norme dans plusieurs équipes de recherche.",
+      'about.p3':"Son analyse géospatiale dans le projet Route-to-Market chez Coca-Cola Beverages Africa, Voltic Ghana, a mené la stratégie de distribution des exigences au déploiement, en optimisant plus de 80 000 sites clients et en réduisant les coûts opérationnels d'environ 50 %, tout en évitant les conflits de territoire entre distributeurs.",
+      'about.p4':"Chez Henson Geodata Technologies, elle était cheffe de produit pour les solutions GeoAI, responsable de la livraison d'IGEZA (aujourd'hui MyAgro360), un produit de gestion des ravageurs et maladies propulsé par l'IA, et a dirigé la planification de mise sur le marché qui a remporté le Frontier Innovation Award au Fall Armyworm Tech Prize.",
+      'about.p5':"Au-delà de son travail produit principal, Cyhana a cofondé African Women in GIS, une communauté de plus de 1 000 membres dans plus de 30 pays, et a fondé Unconventional Impact, une plateforme média construite autour de son cadre original GeoAI Context Intelligence pour combiner pensée géospatiale et IA dans des domaines non conventionnels.",
+      'about.p6':"Ensemble, son travail fait progresser la stratégie produit pour les solutions d'IA et géospatiales, et défend l'inclusion dans la communauté technologique et géospatiale mondiale. Elle est convaincue que des voix diverses façonnent l'avenir de la technologie.",
+      'about.tip':'Astuce : cliquez sur une étape de la chronologie à gauche pour voir le point fort de chaque chapitre.',
+      'tech.eyebrow':'Portefeuille technique','tech.h2':'Portefeuille de gestion de produit technique','tech.p':"Stratégie produit et direction de l'évaluation de l'IA générative pour les agents d'IA chez Microsoft, ainsi que gestion de produit GeoAI dans l'agritech.",
+      'tech.hl1':"Co-créatrice d'un processus de gouvernance pour l'évaluation des résultats de l'IA",'tech.hl2':'Brevet Microsoft pour la génération de données de groupe contextualisées','tech.hl3':'A mené plus de 40 études clients sur Org Explorer et People Agent','tech.hl4':'A dirigé la mise sur le marché et remporté le Frontier Innovation Award pour IGEZA, parmi 288 candidats',
+      'tech.tab1':'Agent Researcher, M365 Copilot','tech.tab2':'Évaluations des prompts','tech.tab3':'People Agent','tech.tab4':'Org Explorer','tech.tab5':'IGEZA',
+      'tech.t1.h3':'Agent Researcher, Microsoft 365 Copilot','tech.t1.org':'Microsoft, chercheuse UX IA II',
+      'tech.t1.p1':"J'ai dirigé la recherche sur l'UI/UX générative (GenUX) et assuré l'évaluation humaine de la qualité des résultats visuels générés par l'IA pour l'agent Researcher, un agent de recherche approfondie destiné aux clients entreprise de Microsoft 365, en transformant les résultats qualité en améliorations produit prioritaires.",
+      'tech.t1.p2':"Au sein de l'équipe Researcher de Microsoft, j'ai élaboré des grilles d'évaluation centrées sur le client et des cadres d'évaluation pour les expériences visuelles et riches en données générées par l'IA, fournissant aux équipes data science et ingénierie des indicateurs de qualité standardisés qui guident l'optimisation des modèles, tout en renforçant mes compétences en gestion de programme, stratégie produit et gouvernance de l'IA.",
+      'tech.t2.h3':'Évaluations des résultats de prompts pour People','tech.t2.org':'Microsoft, équipe People Agent',
+      'tech.t2.p1':"En tant que co-responsable de la recherche UX, j'ai co-créé avec une Content Designer un cadre de gouvernance de l'évaluation des prompts centré sur l'utilisateur, afin d'améliorer la qualité, la cohérence et la fiabilité des réponses de l'IA aux requêtes liées aux personnes. La mise en place de processus d'évaluation structurés, d'indicateurs de succès et de boucles de rétroaction a entraîné une amélioration de 50 % de la qualité des réponses de l'IA, tout en permettant une évaluation à grande échelle avec supervision humaine dans plusieurs équipes.",
+      'tech.t2.chartTitle':'Score de qualité des réponses de l\'IA, avant et après','tech.t2.barValBefore':'Référence','tech.t2.chartCaption':"Avec le nouveau cadre de gouvernance d'évaluation, la qualité des réponses a obtenu un score 50 % supérieur à la référence.",
+      'tech.t3.h3':'People Agent','tech.t3.org':'Microsoft, équipe produit People Agent',
+      'tech.t3.p1':"D'octobre 2024 à janvier 2026, j'ai dirigé la recherche UX pour People Agent, un agent d'IA construit sur Microsoft Graph qui montre aux employés comment ils sont connectés à leurs collègues et au travail qu'ils partagent, en traduisant les besoins des clients en décisions de conception et de lancement sur la manière dont les informations relationnelles sont présentées.",
+      'tech.t4.h3':'Org Explorer','tech.t4.org':'Microsoft, chercheuse UX principale',
+      'tech.t4.p1':"De septembre 2020 à juillet 2024, j'ai orienté les priorités produit et les décisions de lancement d'Org Explorer, un produit permettant aux employés d'explorer la structure et les équipes de leur organisation, désormais utilisé par tous les utilisateurs de Microsoft 365. J'ai mené plus de 40 études clients sur Org Explorer et People Agent, traduisant des besoins utilisateurs et commerciaux complexes en feuilles de route concrètes ayant guidé un lancement réussi et évolutif.",
+      'tech.t5.p1':"En tant que cheffe de produit pour les solutions GeoAI, j'étais responsable de la livraison produit et de la mise sur le marché d'une plateforme propulsée par l'IA permettant aux petits exploitants agricoles de détecter, signaler et répondre aux infestations de chenille légionnaire d'automne.",
+      'gis.igeza.h3':'IGEZA : système de lutte contre les ravageurs et maladies','gis.igeza.org':'Henson Geodata Technologies, cheffe de produit, solutions GeoAI',
+      'funnel.globalApplicants':'Candidatures mondiales','funnel.finalists':'Finalistes, USAID Feed the Future','funnel.frontierAward':'Frontier Innovation Award, 3e place','funnel.topPrefix':'Top ',
+      'chart.before':'Avant','chart.after':'Après',
+      'gis.eyebrow':'Portefeuille SIG','gis.h2':'Portefeuille de gestion de produit SIG','gis.p':"Stratégie produit, gestion de programme géospatial et développement produit GeoAI dans la distribution retail et l'agritech.",
+      'gis.tab1':'Projet route-to-market','gis.tab2':'IGEZA : lutte contre ravageurs et maladies',
+      'gis.t1.p1':"En tant que spécialiste en cartographie SIG pour la stratégie route-to-market chez Voltic Ghana, filiale de Coca-Cola Beverages Africa, j'ai conçu et livré un système de distribution optimisé, des exigences et de l'alignement des parties prenantes jusqu'au déploiement auprès des distributeurs.",
+      'gis.t1.p2':"En analysant plus de 80 000 sites clients, j'ai développé une solution route-to-market qui a réduit les coûts opérationnels de 50 %, amélioré l'efficacité des livraisons, établi des territoires de vente fondés sur les données et évité les conflits de territoire entre distributeurs. Ce travail a contribué à ce que l'entreprise reçoive le Esri Special Achievement in GIS Award en 2020.",
+      'gis.t1.chartTitle':'Coût opérationnel, avant et après','gis.t1.chartCaption':'Refonte route-to-market, sur plus de 80 000 sites analysés.',
+      'gis.t1.badge1':'Meilleure équipe ventes et marketing (Voltic Ghana, CCBA)','gis.t1.badge2':'Esri Special Achievement in GIS Award (Voltic Ghana Limited)',
+      'gis.t1.thumb1':'Coca-Cola Beverages Africa, projet Route-to-Market','gis.t1.thumb2':'Prix meilleure équipe ventes et marketing, Voltic Ghana','gis.t1.thumb3':'Cartographie des territoires route-to-market','gis.t1.thumb4':'Équipe du projet route-to-market, Voltic Ghana',
+      'gis.t2.p1':"En tant que cheffe de produit pour les solutions GeoAI chez Henson Geodata Technologies, j'étais responsable de la livraison d'IGEZA (aujourd'hui MyAgro360), coordonnant les équipes logiciel, données et recherche auprès des agriculteurs, pour livrer un produit de gestion des ravageurs et maladies propulsé par l'IA qui aide les agriculteurs à détecter les menaces sur les cultures, trouver les pesticides recommandés et alerter les agents de vulgarisation agricole.",
+      'gis.t2.p2':"J'ai dirigé la planification de la mise sur le marché et représenté le produit lors de réunions clients et de concours, notamment en présentant IGEZA au Fall Armyworm Tech Prize à Kampala, parmi les 20 finalistes sur 288 candidats.",
+      'gis.t2.p3':"L'équipe a remporté le Frontier Innovation Award (3e place), reconnu par USAID, Feed the Future et FFRAR pour son potentiel à améliorer la sécurité alimentaire et protéger les petits exploitants agricoles à travers l'Afrique.",
+      'gis.t2.badge1':'Frontier Innovation Award, 3e place (50 000 $)','gis.t2.badge2':"Plus de 100 000 points d'intérêt numérisés, Liberia",
+      'init.eyebrow':'Initiatives','init.h2':'African Women in GIS','init.p':'AWiGIS est un réseau panafricain de plus de 1 000 membres qui fait progresser la participation et le leadership des femmes dans le SIG, les sciences géospatiales, la télédétection et les technologies connexes.','init.infoBtn':'AWiGIS, infos et liens',
+      'init.stat1':'Membres dans le monde','init.stat2':'Pays dans le monde','init.stat3':'Événements de formation à impact professionnel','init.stat4':'Cohortes de mentorat',
+      'init.netCaption':'AWiGIS : un pôle panafricain, avec des membres répartis dans plus de 30 pays',
+      'init.p1':"Grâce au mentorat, au renforcement des capacités, au partage des connaissances et au réseautage professionnel, AWiGIS permet aux femmes de toute l'Afrique de développer une expertise technique et de construire des carrières significatives dans le secteur géospatial. Avec des membres issus de plus de 30 pays et horizons différents, l'organisation favorise une communauté collaborative qui soutient l'apprentissage, l'innovation et le leadership.",
+      'init.p2':"En connectant des professionnels émergents avec des praticiens expérimentés et des partenaires de l'industrie, AWiGIS contribue à façonner un écosystème géospatial plus inclusif et inspire la prochaine génération de femmes africaines leaders dans les STIM.",
+      'init.thumbCaption':'African Women in GIS, un réseau panafricain connecté','init.collabHeading':'Principaux partenaires',
+      'action.visitSite':'Visiter le site','action.profile':'Profil','action.watch':'Regarder','action.follow':'Suivre','action.read':'Lire',
+      'init2.h2':'Unconventional Impact','init2.p':"Une plateforme média qui met en lumière les personnes, idées et organisations qui innovent en dehors des sentiers battus, construite autour du cadre original GeoAI Context Intelligence.",'init2.infoBtn':'Unconventional Impact, infos et liens',
+      'init2.hl1':'Interviews instructifs, en direct sur YouTube','init2.hl2':'Articles percutants, publiés sur Medium','init2.hl3':'Analyses pointues partagées sur LinkedIn','init2.hl4':'Guides stratégiques originaux, à commencer par GeoAI Context Intelligence',
+      'init2.website':'Site web',
+      'ach.eyebrow':'Distinctions','ach.h2':'Reconnaissance',
+      'ach1':'Esri Special Achievement Award, 2020','ach2':'Geospatial World 50 Rising Stars, 2021','ach3':'FAW Tech Prize : Frontier Innovation Award, 3e place','ach4':'Esri Women and GIS, Vol. 2 (mise en avant)','ach5':'Brevet Microsoft, données de groupe contextualisées',
+      'contact.h2':'Discutons','contact.p':"Ouverte aux échanges sur la stratégie produit, les agents d'IA, l'intelligence géospatiale et le leadership technologique inclusif.",
+      'contact.btnEmail':"M'envoyer un e-mail",'contact.btnCopy':"Copier l'e-mail",'contact.btnSocials':'Tous les réseaux','contact.toast':'E-mail copié dans le presse-papiers'
+    }
+  };
+
+  function applyLanguage(lang){
+    if (!translations[lang]) lang = 'en';
+    var dict = translations[lang];
+    var en = translations.en;
+    function t(key){ return dict[key] || en[key] || ''; }
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var val = t(el.getAttribute('data-i18n'));
+      if (val) el.textContent = val;
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function(el){
+      var val = t(el.getAttribute('data-i18n-aria'));
+      if (val) el.setAttribute('aria-label', val);
+    });
+    document.querySelectorAll('[data-i18n-content]').forEach(function(el){
+      var val = t(el.getAttribute('data-i18n-content'));
+      if (val) el.setAttribute('content', val);
+    });
+    document.querySelectorAll('[data-i18n-prefix]').forEach(function(el){
+      var val = t(el.getAttribute('data-i18n-prefix'));
+      if (val) el.setAttribute('data-prefix', val);
+    });
+    document.querySelectorAll('[data-i18n-caption]').forEach(function(el){
+      var val = t(el.getAttribute('data-i18n-caption'));
+      if (val){
+        el.setAttribute('data-caption', val);
+        var img = el.querySelector('img');
+        if (img) img.alt = val;
+      }
+    });
+    document.documentElement.lang = lang;
+    langOptions.forEach(function(opt){ opt.classList.toggle('active', opt.getAttribute('data-lang') === lang); });
+    try { localStorage.setItem('cw-lang', lang); } catch(e){}
+  }
+
+  var savedLang = null;
+  try { savedLang = localStorage.getItem('cw-lang'); } catch(e){}
+  applyLanguage(savedLang || 'en');
 
   var progressBar = document.getElementById('progressBar');
   function updateProgress(){
